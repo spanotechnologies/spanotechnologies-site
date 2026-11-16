@@ -1,0 +1,206 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Spano Technologies</title>
+<meta name="description" content="Spano Technologies resells used business laptops and laptop memory, tested and described plainly, through its eBay store.">
+<link rel="icon" type="image/png" href="assets/favicon.png">
+<link rel="apple-touch-icon" href="assets/apple-touch-icon.png">
+<meta property="og:title" content="Spano Technologies">
+<meta property="og:description" content="Used business laptops and RAM, tested and described plainly. Shop on eBay.">
+<meta property="og:image" content="https://spanotechnologies.com/assets/banner-dark.png">
+<meta property="og:url" content="https://spanotechnologies.com/">
+<meta name="theme-color" content="#0c0c0d">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Chakra+Petch:wght@500;600&family=Inter:wght@400;500;600&display=swap">
+<style>
+  /* Layout: one narrow column under the brand banner — mark + wordmark bar, the banner as the hero, a short statement, two ways to reach Cole, three plain facts. */
+  :root {
+    --bg: #0c0c0d;
+    --surface: #161618;
+    --fg: #f1f1ef;
+    --muted: #9b9ba1;
+    --line: #2b2b2f;
+    --btn: #f1f1ef;
+    --btn-ink: #0c0c0d;
+    --banner-dark: block;
+    --banner-light: none;
+    --font-display: "Chakra Petch", "Eurostile", "Bank Gothic", "Arial Narrow", sans-serif;
+    --font-body: "Inter", system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+    color-scheme: dark;
+  }
+  @media (prefers-color-scheme: light) {
+    :root:not([data-theme="dark"]) {
+      --bg: #f3f3f2; --surface: #ffffff; --fg: #111113; --muted: #5d5d63; --line: #d7d7da;
+      --btn: #111113; --btn-ink: #f3f3f2; --banner-dark: none; --banner-light: block;
+      color-scheme: light;
+    }
+  }
+  :root[data-theme="light"] {
+    --bg: #f3f3f2; --surface: #ffffff; --fg: #111113; --muted: #5d5d63; --line: #d7d7da;
+    --btn: #111113; --btn-ink: #f3f3f2; --banner-dark: none; --banner-light: block;
+    color-scheme: light;
+  }
+
+  * { box-sizing: border-box; }
+  body {
+    margin: 0;
+    background: var(--bg);
+    color: var(--fg);
+    font: 400 1rem/1.6 var(--font-body);
+    -webkit-font-smoothing: antialiased;
+  }
+  .wrap {
+    max-width: 1080px;
+    margin-inline: auto;
+    padding-left: max(16px, env(safe-area-inset-left, 0px));
+    padding-right: max(16px, env(safe-area-inset-right, 0px));
+  }
+  a { color: inherit; }
+  a:focus-visible, button:focus-visible { outline: 2px solid var(--fg); outline-offset: 3px; }
+
+  /* bar */
+  .bar { display: flex; align-items: center; justify-content: space-between; gap: 16px; padding-block: 20px; }
+  .brand { display: flex; align-items: center; gap: 12px; text-decoration: none; }
+  .brand img { width: 36px; height: 36px; display: block; }
+  .brand .m-dark { display: var(--banner-dark); }
+  .brand .m-light { display: var(--banner-light); }
+  .wordmark {
+    font-family: var(--font-display); font-weight: 600; font-size: 0.95rem;
+    letter-spacing: 0.32em; text-transform: uppercase; white-space: nowrap;
+  }
+  .bar-link {
+    font-family: var(--font-display); font-weight: 500; font-size: 0.85rem;
+    letter-spacing: 0.14em; text-transform: uppercase; text-decoration: none; color: var(--muted);
+    white-space: nowrap;
+  }
+  .bar-link:hover { color: var(--fg); }
+
+  /* hero banner */
+  .hero { border: 1px solid var(--line); }
+  .hero img { display: block; width: 100%; height: auto; }
+  .hero .b-dark { display: var(--banner-dark); }
+  .hero .b-light { display: var(--banner-light); }
+
+  /* statement */
+  .intro { display: grid; gap: 28px; padding-block: 56px 40px; max-width: 46rem; }
+  .eyebrow {
+    margin: 0; font-family: var(--font-display); font-weight: 500; font-size: 0.8rem;
+    letter-spacing: 0.24em; text-transform: uppercase; color: var(--muted);
+  }
+  h1 {
+    margin: 0; font-family: var(--font-display); font-weight: 600;
+    font-size: clamp(2rem, 1.3rem + 3vw, 3.25rem); line-height: 1.08; letter-spacing: -0.01em;
+    text-wrap: balance;
+  }
+  .lede { margin: 0; color: var(--muted); font-size: 1.075rem; max-width: 38rem; }
+
+  .actions { display: flex; flex-wrap: wrap; align-items: center; gap: 12px 20px; }
+  .btn {
+    display: inline-flex; align-items: center; gap: 10px; padding: 14px 22px;
+    background: var(--btn); color: var(--btn-ink); text-decoration: none;
+    font-family: var(--font-display); font-weight: 600; font-size: 0.9rem; letter-spacing: 0.14em; text-transform: uppercase;
+    clip-path: polygon(0 0, 100% 0, 100% calc(100% - 12px), calc(100% - 12px) 100%, 0 100%);
+  }
+  .btn:hover { opacity: 0.88; }
+  .mail { display: flex; align-items: center; gap: 10px; flex-wrap: wrap; min-width: 0; }
+  .mail a { font-weight: 500; text-decoration-color: var(--line); text-underline-offset: 4px; overflow-wrap: anywhere; }
+  .copy {
+    border: 1px solid var(--line); background: transparent; color: var(--muted); cursor: pointer;
+    font: 500 0.75rem/1 var(--font-display); letter-spacing: 0.14em; text-transform: uppercase; padding: 8px 10px;
+  }
+  .copy:hover { color: var(--fg); border-color: var(--muted); }
+
+  /* facts */
+  .facts {
+    display: grid; grid-template-columns: repeat(3, minmax(0, 1fr));
+    border-top: 1px solid var(--line); border-bottom: 1px solid var(--line);
+    margin-block-end: 56px;
+  }
+  .fact { padding: 22px 20px 24px 0; display: grid; gap: 6px; }
+  .fact + .fact { padding-left: 20px; border-left: 1px solid var(--line); }
+  .fact dt {
+    font-family: var(--font-display); font-weight: 600; font-size: 0.8rem;
+    letter-spacing: 0.2em; text-transform: uppercase;
+  }
+  .fact dd { margin: 0; color: var(--muted); font-size: 0.95rem; }
+
+  footer { padding-block: 0 40px; color: var(--muted); font-size: 0.85rem; display: flex; flex-wrap: wrap; gap: 8px 24px; }
+
+  @media (max-width: 640px) {
+    .wordmark { font-size: 0.78rem; letter-spacing: 0.22em; }
+    .bar-link { display: none; }
+    .intro { padding-block: 40px 32px; }
+    .facts { grid-template-columns: 1fr; }
+    .fact { padding: 18px 0; }
+    .fact + .fact { padding-left: 0; border-left: 0; border-top: 1px solid var(--line); }
+  }
+  @media (prefers-reduced-motion: reduce) { * { transition: none !important; } }
+</style>
+</head>
+<body>
+
+<div class="wrap">
+  <header class="bar">
+    <a class="brand" href="#" aria-label="Spano Technologies home">
+      <img class="m-dark" src="assets/mark-dark-256.png" alt="">
+      <img class="m-light" src="assets/mark-light-256.png" alt="">
+      <span class="wordmark">Spano Technologies</span>
+    </a>
+    <a class="bar-link" href="https://www.ebay.com/str/spanotechnologies" target="_blank" rel="noopener">eBay store ↗</a>
+  </header>
+
+  <div class="hero">
+    <img class="b-dark" src="assets/banner-dark.png" width="2668" height="606" alt="Spano Technologies">
+    <img class="b-light" src="assets/banner-light.png" width="2668" height="605" alt="Spano Technologies">
+  </div>
+
+  <main class="intro">
+    <p class="eyebrow">Business laptops · Laptop memory</p>
+    <h1>Used business laptops and RAM, tested and described plainly.</h1>
+    <p class="lede">Spano Technologies resells used business laptops and laptop memory through eBay. Every unit is checked before it is listed, and the listing says what works and what doesn't.</p>
+    <div class="actions">
+      <a class="btn" href="https://www.ebay.com/str/spanotechnologies" target="_blank" rel="noopener">Shop on eBay ↗</a>
+      <div class="mail">
+        <a id="email" href="mailto:cole@spanotechnologies.com">cole@spanotechnologies.com</a>
+        <button class="copy" id="copy-email" type="button">Copy</button>
+      </div>
+    </div>
+  </main>
+
+  <dl class="facts">
+    <div class="fact"><dt>Tested first</dt><dd>Powered on and checked before it is listed.</dd></div>
+    <div class="fact"><dt>1-day handling</dt><dd>Orders ship within one business day.</dd></div>
+    <div class="fact"><dt>30-day returns</dt><dd>On every used item sold on eBay.</dd></div>
+  </dl>
+
+  <footer>
+    <span>© 2026 Spano Technologies</span>
+    <span>Sold on eBay as spanotechnologies</span>
+  </footer>
+</div>
+
+<script>
+  (function () {
+    var btn = document.getElementById('copy-email');
+    var addr = 'cole@spanotechnologies.com';
+    btn.addEventListener('click', function () {
+      function done(ok) {
+        btn.textContent = ok ? 'Copied' : 'Select it';
+        setTimeout(function () { btn.textContent = 'Copy'; }, 1800);
+        if (!ok) {
+          var r = document.createRange();
+          r.selectNodeContents(document.getElementById('email'));
+          var s = window.getSelection(); s.removeAllRanges(); s.addRange(r);
+        }
+      }
+      try {
+        navigator.clipboard.writeText(addr).then(function () { done(true); }, function () { done(false); });
+      } catch (e) { done(false); }
+    });
+  })();
+</script>
+</body>
+</html>
