@@ -64,7 +64,7 @@
   .bar .wrap { display: flex; align-items: center; justify-content: space-between; gap: 16px; padding-block: 12px; }
   .progress { position: absolute; left: 0; right: 0; bottom: -1px; height: 2px; background: var(--fg); transform: scaleX(0); transform-origin: left; }
   .brand { display: flex; align-items: center; gap: 10px; text-decoration: none; min-width: 0; }
-  .brand img { width: 44px; height: 44px; filter: contrast(2.4); mix-blend-mode: screen; transition: transform .5s var(--ease); }
+  .brand img { width: auto; height: 24px; margin-block: 10px; transition: transform .5s var(--ease); }
   .brand:hover img { transform: translateX(4px) skewX(-6deg); }
   .wordmark { font: 600 0.9rem/1 var(--font-display); letter-spacing: 0.3em; text-transform: uppercase; white-space: nowrap; }
   .menu { display: flex; align-items: center; gap: 4px 24px; }
@@ -249,7 +249,7 @@
     .menu { gap: 4px 13px; }
     .menu .opt { display: none; }
     .menu a { font-size: 0.7rem; letter-spacing: 0.1em; }
-    .brand img { width: 38px; height: 38px; }
+    .brand img { height: 20px; }
     .outline { -webkit-text-stroke-width: 1px; }
   }
   @media (prefers-reduced-motion: reduce) {
@@ -263,7 +263,7 @@
 <header class="bar">
   <div class="wrap">
     <a class="brand" href="index.html" aria-label="Spano Technologies home">
-      <img src="assets/mark-dark-256.png" alt="">
+      <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAALUAAAA8CAYAAAAg7Pu5AAAFbUlEQVR4Aeyc78sUVRTHZ6O3BRJERb2IiCKCKCr6E0IKSooIjUoCiaj+mCDCKCoKijTpl3+DIOIbBRERUfEHooj4fv2cx5mHfWZn5s7dvbNz752vnPPM7uzdO+d8z+c53L3jPg8U+icFMlNAUGdWUKVTFIJaFGSngKDOrqRKKCqo5/P5TXzqtrsPloi0G5fN53/U9YoKaoJ7GZ+yvTObzY66BIDktxjzP95ikzl9BL0+qGcbFdQEeJEA/8OnaAb0367ES6D/dY2bwOuH4WVPU55RQW0BEujbdpyYC2i/gh+Ck/fa3hId1GWgB8rjFA4C2q/K1qHf73pLlFDzW3iQoK/juZuA9qtwZ4eupooS6jK4l8pjrgcB7VdZZ4euposWarq1depDVaC+x8jH9wXaPl/oQ2FRGNCta+h6raOF2gIF7M61k41J0H2A/ifB/EKH7AW0XTxqqC1AfB+eiwlov0p6A23TRw813fo3Ar2Cp259gbYbK+rQnkuORTiih7oM9rnymOphD7+cfW6svEuCWkOvATT6pfG/9ADiLsGewlM069BHXIFzp/ANxvyFT91+p95tHwp7aZNEp6bgH5HNi3goexThNmXODm1JEcwxfHDjWnfwUHZ8gIA/XDe46KEugf5l3UQX3r+LQtxYeD6Zh2h5mmQfxkOYAf16iIlCzxE11BTBOnRIoJ8C6NuhRUxhPrQ8S5wv4CEsWqAtuWihpghDAH3Zkp6ao6UB/WygvKMG2nKMEmqK8DHBhe7QAhpR17Togbb8ooO6BPonCy6QP8SSIx+gPURBy3MMn0yHJtctiwpqimAdOiTQZ8jyTebdn4F/SS69jXxtyfFM7zd0D0yiQ1cpRAM1RQgNtOX4PD/+xH/IwG0fmzTchpYG9OQ6dKVMFFBThCGArnLM4fgtS6i9fRJBy5BLjhNcN8ptuy4tRoeaIgjorgoVhQH9RfeQ+6+ipQEdcsnx6v2Z0/o5KtQUQUB38zIm0Ml16ErK0aBeA+gq9tyPAnrFCo8CtYB2VmssoJNcQ9fV3DjUAP0pQYTctmO6rGxMoJNcQ9erv1GoS6B/rAeh59sKCOhtKVZ/sDGoBbSzSN+xfTbGLoctObLo0JXCG4EaoG2XQx26Un35aB368+XTy2fQMuS2XURAL+e66pnBoaYIWkN3V8eAHqND263vrDp0JfOgUAP011xIHRoRWmzMJUey+9AtWm6fHhRqrvIa/nMG/g05hP62jHVoLTkQNrQNCjUffPbhn2TgXyH8LjyUGdBjLDmyXEPXizIo1PWLpfqcZdSc2B/EQ9iYS44s19D1ogjquiK15yXQtbMrPzWgW5cci7NyXe1yLAri8VhQd4gFWNahO0Z4vSSgveRafbCgbtFOQLcIk8BpQd1QJAHdIEpCp9aCmuLvxa9k5JfIRUuOhABuCnVlqCn+fib8FX88I3+SXEKZ1tChlPScZyWoS6Dty6yel3MNz+Z1AT1iKb2hFtDOaglop0TDDvCCWkA7iyGgnRINP6A31ALaWQwB7ZRoMwN6QS2gncUYC+iTs9lsEre+nRVYGOCEWkAvqNX88CBgjXHr24B+pTmkyM5uOJxOqAW0sxoG9AHnKAag5XkOof7QjIBGzDZrhZoi2D60tu3alCsKX6Cfbp/K6xUB7ZCrEWoB7VBNQDsFGnPAEtQA/RkBqUMjQoupQ7cIE8vpHVADtH2n8PtYgoswDh+grxF/qCWHfWNFHwoRtI/tgJo3HMafkBdNGjzCLkevD4XoZ2Z/T7qaZ53jY1xX23amaE/fATXiXcavymdNGtzqqenWMDS8gDfN43vu+taE+tFbgR1Q936XBkqBiBUQ1BEXR6GtpsA9AAAA//9Qztf7AAAABklEQVQDAE/eCtMXN1DbAAAAAElFTkSuQmCC" width="181" height="60" alt="">
       <span class="wordmark">Spano Technologies</span>
     </a>
     <nav class="menu" aria-label="Main"><a href="guide.html" aria-current="page">Guide</a><a href="faq.html">FAQ</a><a href="about.html">About</a><a href="contact.html" class=opt>Contact</a><a class="btn small" href="https://www.ebay.com/str/spanotechnologies" target="_blank" rel="noopener">Shop ↗</a></nav>
