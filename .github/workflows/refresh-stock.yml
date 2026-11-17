@@ -1,4 +1,3 @@
-# Goes in the repo at .github/workflows/refresh-stock.yml once the site source lives in the repo.
 # Rebuilds and publishes the site on every push, every 3 hours, and on demand.
 # Needs two repository secrets (Settings -> Secrets and variables -> Actions):
 #   EBAY_CLIENT_ID      the eBay app's Client ID (App ID)
@@ -26,8 +25,8 @@ jobs:
   build:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v4
-      - uses: actions/setup-python@v5
+      - uses: actions/checkout@v7
+      - uses: actions/setup-python@v7
         with:
           python-version: '3.12'
       - name: Refresh stock from eBay
@@ -42,7 +41,7 @@ jobs:
           fi
       - name: Build
         run: python3 build.py
-      - uses: actions/upload-pages-artifact@v3
+      - uses: actions/upload-pages-artifact@v5
         with:
           path: site
 
@@ -54,4 +53,4 @@ jobs:
       url: ${{ steps.deployment.outputs.page_url }}
     steps:
       - id: deployment
-        uses: actions/deploy-pages@v4
+        uses: actions/deploy-pages@v5
