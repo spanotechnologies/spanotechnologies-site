@@ -1,0 +1,26 @@
+{
+ "laptops": [
+  ["Lenovo Legion Pro 7i", "Ultra 9 275HX / RTX 5090 / 64GB"],
+  ["Dell Precision 3571", "i7-12800H / NVIDIA T600 / 32GB DDR5"],
+  ["Dell Vostro 7620", "i7-12700H / RTX 3050 Ti / 16GB DDR5"],
+  ["ThinkPad T14s Gen 2", "i7-1185G7 / 32GB / Touch"],
+  ["ThinkPad X1 Carbon Gen 9", "i7-1165G7 / 16GB / WUXGA"],
+  ["ThinkPad X1 Yoga Gen 5", "i5-10210U / 16GB / Touch"],
+  ["Dell Latitude 5520", "i7-1185G7 / 16GB / Touch"],
+  ["Dell Latitude 3540", "i7-1355U / 16GB"],
+  ["MacBook Air M2 13.6\"", "8GB / 256GB"],
+  ["MacBook Air M1", "16GB / 512GB"]
+ ],
+ "memory": [
+  ["128GB DDR4-2666 RDIMM", "4x32GB server kit / SK hynix"],
+  ["64GB DDR4-2666 RDIMM", "4x16GB server kit / SK hynix"],
+  ["64GB DDR5-4800 SODIMM", "2x32GB laptop kit / Micron"],
+  ["32GB DDR5-5600 SODIMM", "2x16GB laptop kit / Crucial"],
+  ["32GB DDR4-2400 UDIMM", "4x8GB desktop kit / SK hynix"],
+  ["16GB DDR4-3200 SODIMM", "2x8GB laptop kit / Samsung"],
+  ["16GB DDR4-3200 UDIMM", "2x8GB desktop kit / Micron"],
+  ["16GB DDR4-3200 SODIMM", "Single stick / Crucial"],
+  ["16GB DDR4-2400 UDIMM", "2x8GB desktop kit / ADATA"],
+  ["8GB DDR4-2666 UDIMM", "Single stick / Samsung"]
+ ]
+}

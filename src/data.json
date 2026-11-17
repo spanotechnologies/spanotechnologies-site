@@ -1,0 +1,8 @@
+{
+  "_note": "Numbers shown on the site. SOLD is rounded down from the store page's 'items sold' (619 on 2026-11-17; the API does not expose it). FEEDBACK, PCT and SINCE come from ebay_profile.py (Trading GetUser). Update, then run build.py.",
+  "SOLD": "600",
+  "FEEDBACK": "519",
+  "PCT": "100",
+  "SINCE": "2014",
+  "as_of": "2026-11-17"
+}

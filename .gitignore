@@ -1,0 +1,6 @@
+# local-only: private Claude preview copy, original logo files, the read-only eBay profile tool
+preview/
+brand/
+ebay_profile.py
+__pycache__/
+.DS_Store

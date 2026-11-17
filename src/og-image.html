@@ -1,0 +1,48 @@
+<!doctype html>
+<meta charset="utf-8">
+<title>Share image</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Chakra+Petch:wght@500;600&family=JetBrains+Mono:wght@500&display=swap">
+<style>body{margin:0;background:#222}canvas{display:block;width:1200px;height:630px}</style>
+<canvas id="c" width="1200" height="630"></canvas>
+<script>
+const S = [[157,0],[482,0],[418,64],[288,64],[257,96],[513,96],[352,257],[0,257],[64,193],[320,193],[352,161],[96,161],[194,63]];
+const T = [[531,0],[855,0],[791,64],[693,64],[500,257],[405,257],[597,64],[467,64]];
+function poly(x, P, ox, oy, sc) {
+  x.beginPath();
+  P.forEach(([px, py], i) => { const X = ox + px * sc, Y = oy + py * sc; i ? x.lineTo(X, Y) : x.moveTo(X, Y); });
+  x.closePath();
+}
+window.draw = async function () {
+  await Promise.all([document.fonts.load('600 76px "Chakra Petch"'), document.fonts.load('500 19px "JetBrains Mono"')]);
+  const c = document.getElementById('c'), x = c.getContext('2d');
+  x.fillStyle = '#09090a'; x.fillRect(0, 0, 1200, 630);
+  x.strokeStyle = 'rgba(255,255,255,.04)'; x.lineWidth = 1;
+  for (let i = -630; i < 1200; i += 13) { x.beginPath(); x.moveTo(i + 630, 0); x.lineTo(i, 630); x.stroke(); }
+  let g = x.createLinearGradient(0, 0, 1200, 0);
+  g.addColorStop(0, '#09090a'); g.addColorStop(0.3, '#09090a'); g.addColorStop(0.85, 'rgba(9,9,10,0)');
+  x.fillStyle = g; x.fillRect(0, 0, 1200, 630);
+  const sc = 1.62, ox = 560, oy = 96;
+  g = x.createLinearGradient(0, oy, 0, oy + 258 * sc);
+  g.addColorStop(0, '#1c1c1f'); g.addColorStop(1, '#4a4a50');
+  for (const P of [S, T]) { poly(x, P, ox, oy, sc); x.fillStyle = g; x.fill(); x.strokeStyle = 'rgba(255,255,255,.34)'; x.lineWidth = 1.5; x.stroke(); }
+  x.textBaseline = 'alphabetic';
+  x.fillStyle = '#9a9aa1'; x.font = '500 19px "JetBrains Mono"'; x.letterSpacing = '4px';
+  x.fillText('/ BUSINESS LAPTOPS · COMPUTER MEMORY', 64, 132);
+  x.fillStyle = '#f2f2f0'; x.font = '600 78px "Chakra Petch"'; x.letterSpacing = '-1px';
+  x.fillText('USED BUSINESS', 62, 232); x.fillText('LAPTOPS AND RAM.', 62, 310);
+  x.strokeStyle = '#f2f2f0'; x.lineWidth = 2; x.lineJoin = 'round';
+  x.strokeText('TRUSTED ON EBAY', 62, 388); x.strokeText('SINCE 2014.', 62, 466);
+  x.fillStyle = '#f2f2f0';
+  for (const P of [S, T]) { poly(x, P, 64, 541, 0.118); x.fill(); }
+  x.font = '500 18px "JetBrains Mono"'; x.letterSpacing = '4px';
+  x.fillText('SPANOTECHNOLOGIES.COM', 188, 565);
+  x.textAlign = 'right'; x.fillStyle = '#9a9aa1';
+  x.fillText('100% POSITIVE  //  600+ SOLD', 1140, 565);
+  x.textAlign = 'left';
+  return 'drawn';
+};
+window.save = () => new Promise(res => document.getElementById('c').toBlob(async b => {
+  const r = await fetch('/save/og.jpg', { method: 'POST', body: b });
+  res(await r.text());
+}, 'image/jpeg', 0.92));
+</script>

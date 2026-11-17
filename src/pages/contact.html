@@ -1,0 +1,49 @@
+<!-- title: Contact · Spano Technologies -->
+<!-- description: How to reach Spano Technologies by email or through eBay. -->
+<section class="page-head">
+  <div class="wrap" style="display:grid;gap:16px">
+    <p class="eyebrow">Contact</p>
+    <h1>Get in touch.</h1>
+    <p class="lede">Questions about a laptop, a stick of RAM or an order? Email is the best way to reach us.</p>
+  </div>
+</section>
+
+<div class="wrap">
+  <div class="contact-grid">
+    <section class="panel">
+      <p class="eyebrow">Email</p>
+      <div class="mail">
+        <a id="email" href="mailto:cole@spanotechnologies.com">cole@spanotechnologies.com</a>
+        <button class="copy" id="copy-email" type="button">Copy</button>
+      </div>
+      <p class="muted">Include the listing title or item number if your question is about something for sale.</p>
+    </section>
+    <section class="panel">
+      <p class="eyebrow">Orders on eBay</p>
+      <h3>Already bought something?</h3>
+      <p class="muted">For returns, tracking or an issue with an order, message us through eBay from the order page. That keeps everything attached to the order and covered by eBay's buyer protection.</p>
+      <div><a class="btn ghost" href="{{EBAY}}" target="_blank" rel="noopener">eBay store ↗</a></div>
+    </section>
+  </div>
+</div>
+
+<script>
+  (function () {
+    var btn = document.getElementById('copy-email');
+    if (!btn) return;
+    var addr = 'cole@spanotechnologies.com';
+    btn.addEventListener('click', function () {
+      function done(ok) {
+        btn.textContent = ok ? 'Copied' : 'Select it';
+        setTimeout(function () { btn.textContent = 'Copy'; }, 1800);
+        if (!ok) {
+          var r = document.createRange();
+          r.selectNodeContents(document.getElementById('email'));
+          var s = window.getSelection(); s.removeAllRanges(); s.addRange(r);
+        }
+      }
+      try { navigator.clipboard.writeText(addr).then(function () { done(true); }, function () { done(false); }); }
+      catch (e) { done(false); }
+    });
+  })();
+</script>

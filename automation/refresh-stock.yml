@@ -1,0 +1,57 @@
+# Goes in the repo at .github/workflows/refresh-stock.yml once the site source lives in the repo.
+# Rebuilds and publishes the site on every push, every 3 hours, and on demand.
+# Needs two repository secrets (Settings -> Secrets and variables -> Actions):
+#   EBAY_CLIENT_ID      the eBay app's Client ID (App ID)
+#   EBAY_CLIENT_SECRET  the eBay app's Client Secret (Cert ID)
+# These only read public listings. Without them the site still builds, with the last saved stock.
+name: Build and publish site
+
+on:
+  push:
+    branches: [main]
+  schedule:
+    - cron: '17 */3 * * *'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+concurrency:
+  group: pages
+  cancel-in-progress: true
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Refresh stock from eBay
+        env:
+          EBAY_CLIENT_ID: ${{ secrets.EBAY_CLIENT_ID }}
+          EBAY_CLIENT_SECRET: ${{ secrets.EBAY_CLIENT_SECRET }}
+        run: |
+          if [ -z "$EBAY_CLIENT_ID" ]; then
+            echo "No eBay keys set yet; keeping the saved stock list."
+          else
+            python3 automation/fetch_stock.py . || echo "eBay fetch failed; keeping the saved stock list."
+          fi
+      - name: Build
+        run: python3 build.py
+      - uses: actions/upload-pages-artifact@v3
+        with:
+          path: site
+
+  deploy:
+    needs: build
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - id: deployment
+        uses: actions/deploy-pages@v4
