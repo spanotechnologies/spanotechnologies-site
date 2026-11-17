@@ -56,7 +56,7 @@ FONTS = ('<link rel="preconnect" href="https://fonts.googleapis.com">\n'
 JSONLD = ('<script type="application/ld+json">{"@context":"https://schema.org","@type":"Organization",'
           '"name":"Spano Technologies","url":"https://spanotechnologies.com/",'
           '"logo":"https://spanotechnologies.com/assets/apple-touch-icon.png",'
-          '"email":"cole@spanotechnologies.com","sameAs":["https://www.ebay.com/str/spanotechnologies"]}</script>')
+          '"email":"info@spanotechnologies.com","sameAs":["https://www.ebay.com/str/spanotechnologies"]}</script>')
 
 DATA = json.loads((SRC / 'data.json').read_text())
 esc = html.escape
@@ -95,7 +95,7 @@ FOOTER = f'''<footer>
       <div>{MARK}<p>Used electronics, specializing in business laptops and memory. Tested by hand and sold on eBay since {DATA["SINCE"]}.</p></div>
       <div><h4>Shop</h4><nav aria-label="Shop"><a href="{EBAY}" target="_blank" rel="noopener">eBay store {ARR}</a><a href="{FEEDBACK}" target="_blank" rel="noopener">Feedback {ARR}</a><a href="index.html#stock">In stock now</a></nav></div>
       <div><h4>Info</h4><nav aria-label="Info"><a href="guide.html">Buying guide</a><a href="faq.html">FAQ</a><a href="about.html">About</a><a href="roadmap.html">What's next</a></nav></div>
-      <div><h4>Contact</h4><nav aria-label="Contact"><a href="contact.html">Contact page</a><a href="mailto:cole@spanotechnologies.com">cole@spanotechnologies.com</a></nav></div>
+      <div><h4>Contact</h4><nav aria-label="Contact"><a href="contact.html">Contact page</a><a href="mailto:info@spanotechnologies.com">info@spanotechnologies.com</a></nav></div>
     </div>
     <div class="legal"><span>© {dt.date.today().year} Spano Technologies</span><span>Independent seller. eBay is a trademark of eBay Inc.</span></div>
   </div>
