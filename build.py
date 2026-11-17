@@ -49,6 +49,14 @@ HERO_MARK = f'''<div class="hero-mark" aria-hidden="true">
 </div>'''
 ARR = ('<svg class="arr" viewBox="0 0 12 12" aria-hidden="true" focusable="false">'
        '<path d="M2 10 10 2M3.5 2H10v6.5" fill="none" stroke="currentColor" stroke-width="1.7"/></svg>')
+# The live site serves its own fonts (Latin subset, from Google Fonts, in site/assets/fonts/).
+# FONTS (Google's stylesheet) is kept only for the private Claude preview, which can't load them.
+FONT_FILES = [('Chakra Petch', 500, 'chakra-petch-500.woff2'), ('Chakra Petch', 600, 'chakra-petch-600.woff2'),
+              ('Inter', '400 600', 'inter-var.woff2'), ('JetBrains Mono', 500, 'jetbrains-mono-500.woff2')]
+SELF_FONTS = ''.join(f'<link rel="preload" href="/assets/fonts/{f}" as="font" type="font/woff2" crossorigin>\n'
+                     for f in ('chakra-petch-600.woff2', 'inter-var.woff2'))
+FONT_FACES = ''.join(f'  @font-face {{ font-family: "{fam}"; font-style: normal; font-weight: {w}; font-display: swap; '
+                     f'src: url("/assets/fonts/{f}") format("woff2"); }}\n' for fam, w, f in FONT_FILES)
 FONTS = ('<link rel="preconnect" href="https://fonts.googleapis.com">\n'
          '<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>\n'
          '<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Chakra+Petch:wght@500;600'
@@ -196,9 +204,8 @@ def build():
 <meta name="twitter:card" content="summary_large_image">
 <meta name="theme-color" content="#09090a">
 <meta name="color-scheme" content="dark">
-{extra}{FONTS}
-<style>
-{css}</style>
+{extra}{SELF_FONTS}<style>
+{FONT_FACES}{css}</style>
 </head>
 <body>
 {main}</body>
