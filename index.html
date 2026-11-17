@@ -4,203 +4,263 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>Spano Technologies</title>
-<meta name="description" content="Spano Technologies resells used business laptops and laptop memory, tested and described plainly, through its eBay store.">
-<link rel="icon" type="image/png" href="assets/favicon.png">
-<link rel="apple-touch-icon" href="assets/apple-touch-icon.png">
+<meta name="description" content="Spano Technologies resells used business laptops and computer memory, tested and described plainly, through its eBay store.">
+<link rel="icon" type="image/png" href="/assets/favicon.png">
+<link rel="apple-touch-icon" href="/assets/apple-touch-icon.png">
 <meta property="og:title" content="Spano Technologies">
-<meta property="og:description" content="Used business laptops and RAM, tested and described plainly. Shop on eBay.">
+<meta property="og:description" content="Spano Technologies resells used business laptops and computer memory, tested and described plainly, through its eBay store.">
 <meta property="og:image" content="https://spanotechnologies.com/assets/banner-dark.png">
-<meta property="og:url" content="https://spanotechnologies.com/">
 <meta name="theme-color" content="#0c0c0d">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Chakra+Petch:wght@500;600&family=Inter:wght@400;500;600&display=swap">
 <style>
-  /* Layout: one narrow column under the brand banner — mark + wordmark bar, the banner as the hero, a short statement, two ways to reach Cole, three plain facts. */
+  /* Layout: brand bar with menu, then full-width bands (hero, what we sell, how a unit gets listed, policies, call to action); inner pages reuse the bar, a short page head and one content column. Angled cuts echo the ST mark. */
   :root {
     --bg: #0c0c0d;
-    --surface: #161618;
+    --band: #141416;
+    --surface: #1b1b1e;
     --fg: #f1f1ef;
-    --muted: #9b9ba1;
-    --line: #2b2b2f;
+    --muted: #9d9da3;
+    --line: #2c2c30;
     --btn: #f1f1ef;
     --btn-ink: #0c0c0d;
-    --banner-dark: block;
-    --banner-light: none;
+    --show-dark: block;
+    --show-light: none;
     --font-display: "Chakra Petch", "Eurostile", "Bank Gothic", "Arial Narrow", sans-serif;
     --font-body: "Inter", system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+    --cut: 14px;
     color-scheme: dark;
   }
   @media (prefers-color-scheme: light) {
     :root:not([data-theme="dark"]) {
-      --bg: #f3f3f2; --surface: #ffffff; --fg: #111113; --muted: #5d5d63; --line: #d7d7da;
-      --btn: #111113; --btn-ink: #f3f3f2; --banner-dark: none; --banner-light: block;
+      --bg: #f4f4f3; --band: #ebebea; --surface: #ffffff; --fg: #111113; --muted: #5c5c62; --line: #d5d5d8;
+      --btn: #111113; --btn-ink: #f4f4f3; --show-dark: none; --show-light: block;
       color-scheme: light;
     }
   }
   :root[data-theme="light"] {
-    --bg: #f3f3f2; --surface: #ffffff; --fg: #111113; --muted: #5d5d63; --line: #d7d7da;
-    --btn: #111113; --btn-ink: #f3f3f2; --banner-dark: none; --banner-light: block;
+    --bg: #f4f4f3; --band: #ebebea; --surface: #ffffff; --fg: #111113; --muted: #5c5c62; --line: #d5d5d8;
+    --btn: #111113; --btn-ink: #f4f4f3; --show-dark: none; --show-light: block;
     color-scheme: light;
   }
 
   * { box-sizing: border-box; }
-  body {
-    margin: 0;
-    background: var(--bg);
-    color: var(--fg);
-    font: 400 1rem/1.6 var(--font-body);
-    -webkit-font-smoothing: antialiased;
-  }
+  body { margin: 0; background: var(--bg); color: var(--fg); font: 400 1rem/1.6 var(--font-body); -webkit-font-smoothing: antialiased; }
+  a { color: inherit; }
+  a:focus-visible, button:focus-visible { outline: 2px solid var(--fg); outline-offset: 3px; }
+  img { max-width: 100%; }
   .wrap {
-    max-width: 1080px;
-    margin-inline: auto;
+    max-width: 1120px; margin-inline: auto;
     padding-left: max(16px, env(safe-area-inset-left, 0px));
     padding-right: max(16px, env(safe-area-inset-right, 0px));
   }
-  a { color: inherit; }
-  a:focus-visible, button:focus-visible { outline: 2px solid var(--fg); outline-offset: 3px; }
+  .on-dark { display: var(--show-dark); }
+  .on-light { display: var(--show-light); }
 
-  /* bar */
-  .bar { display: flex; align-items: center; justify-content: space-between; gap: 16px; padding-block: 20px; }
-  .brand { display: flex; align-items: center; gap: 12px; text-decoration: none; }
-  .brand img { width: 36px; height: 36px; display: block; }
-  .brand .m-dark { display: var(--banner-dark); }
-  .brand .m-light { display: var(--banner-light); }
-  .wordmark {
-    font-family: var(--font-display); font-weight: 600; font-size: 0.95rem;
-    letter-spacing: 0.32em; text-transform: uppercase; white-space: nowrap;
-  }
-  .bar-link {
-    font-family: var(--font-display); font-weight: 500; font-size: 0.85rem;
-    letter-spacing: 0.14em; text-transform: uppercase; text-decoration: none; color: var(--muted);
-    white-space: nowrap;
-  }
-  .bar-link:hover { color: var(--fg); }
+  /* type */
+  .eyebrow { margin: 0; font: 500 0.78rem/1.3 var(--font-display); letter-spacing: 0.24em; text-transform: uppercase; color: var(--muted); }
+  h1, h2, h3 { font-family: var(--font-display); font-weight: 600; margin: 0; text-wrap: balance; }
+  h1 { font-size: clamp(2.1rem, 1.3rem + 3.2vw, 3.6rem); line-height: 1.05; letter-spacing: -0.01em; }
+  h2 { font-size: clamp(1.5rem, 1.1rem + 1.6vw, 2.2rem); line-height: 1.12; }
+  h3 { font-size: 1.05rem; letter-spacing: 0.06em; text-transform: uppercase; }
+  p { margin: 0; }
+  .lede { color: var(--muted); font-size: 1.1rem; max-width: 40rem; }
+  .muted { color: var(--muted); }
 
-  /* hero banner */
-  .hero { border: 1px solid var(--line); }
-  .hero img { display: block; width: 100%; height: auto; }
-  .hero .b-dark { display: var(--banner-dark); }
-  .hero .b-light { display: var(--banner-light); }
+  /* bar + menu */
+  .bar { position: sticky; top: env(safe-area-inset-top, 0px); z-index: 20; background: var(--bg); border-bottom: 1px solid var(--line); }
+  body::before { content: ""; position: fixed; inset: 0 0 auto; height: env(safe-area-inset-top, 0px); z-index: 30; background: var(--bg); }
+  .bar .wrap { display: flex; align-items: center; justify-content: space-between; gap: 16px; padding-block: 14px; }
+  .brand { display: flex; align-items: center; gap: 12px; text-decoration: none; min-width: 0; }
+  .brand img { width: 34px; height: 34px; }
+  .wordmark { font: 600 0.92rem/1 var(--font-display); letter-spacing: 0.3em; text-transform: uppercase; white-space: nowrap; }
+  .menu { display: flex; align-items: center; gap: 4px 22px; flex-wrap: wrap; justify-content: flex-end; }
+  .menu a { font: 500 0.82rem/1 var(--font-display); letter-spacing: 0.16em; text-transform: uppercase; text-decoration: none; color: var(--muted); padding-block: 8px; }
+  .menu a:hover, .menu a[aria-current="page"] { color: var(--fg); }
+  .menu a[aria-current="page"] { box-shadow: inset 0 -2px 0 var(--fg); }
 
-  /* statement */
-  .intro { display: grid; gap: 28px; padding-block: 56px 40px; max-width: 46rem; }
-  .eyebrow {
-    margin: 0; font-family: var(--font-display); font-weight: 500; font-size: 0.8rem;
-    letter-spacing: 0.24em; text-transform: uppercase; color: var(--muted);
-  }
-  h1 {
-    margin: 0; font-family: var(--font-display); font-weight: 600;
-    font-size: clamp(2rem, 1.3rem + 3vw, 3.25rem); line-height: 1.08; letter-spacing: -0.01em;
-    text-wrap: balance;
-  }
-  .lede { margin: 0; color: var(--muted); font-size: 1.075rem; max-width: 38rem; }
-
-  .actions { display: flex; flex-wrap: wrap; align-items: center; gap: 12px 20px; }
+  /* buttons */
   .btn {
     display: inline-flex; align-items: center; gap: 10px; padding: 14px 22px;
-    background: var(--btn); color: var(--btn-ink); text-decoration: none;
-    font-family: var(--font-display); font-weight: 600; font-size: 0.9rem; letter-spacing: 0.14em; text-transform: uppercase;
-    clip-path: polygon(0 0, 100% 0, 100% calc(100% - 12px), calc(100% - 12px) 100%, 0 100%);
+    background: var(--btn); color: var(--btn-ink); text-decoration: none; border: 0; cursor: pointer;
+    font: 600 0.88rem/1 var(--font-display); letter-spacing: 0.14em; text-transform: uppercase;
+    clip-path: polygon(0 0, 100% 0, 100% calc(100% - var(--cut)), calc(100% - var(--cut)) 100%, 0 100%);
   }
   .btn:hover { opacity: 0.88; }
-  .mail { display: flex; align-items: center; gap: 10px; flex-wrap: wrap; min-width: 0; }
-  .mail a { font-weight: 500; text-decoration-color: var(--line); text-underline-offset: 4px; overflow-wrap: anywhere; }
-  .copy {
-    border: 1px solid var(--line); background: transparent; color: var(--muted); cursor: pointer;
-    font: 500 0.75rem/1 var(--font-display); letter-spacing: 0.14em; text-transform: uppercase; padding: 8px 10px;
-  }
-  .copy:hover { color: var(--fg); border-color: var(--muted); }
+  .btn.ghost { background: transparent; color: var(--fg); box-shadow: inset 0 0 0 1px var(--line); clip-path: none; }
+  .btn.ghost:hover { box-shadow: inset 0 0 0 1px var(--muted); opacity: 1; }
+  .menu .btn.small { padding: 10px 14px; font-size: 0.76rem; color: var(--btn-ink); --cut: 10px; }
+  .menu .btn.small:hover { color: var(--btn-ink); }
+  .actions { display: flex; flex-wrap: wrap; gap: 12px 16px; align-items: center; }
 
-  /* facts */
-  .facts {
-    display: grid; grid-template-columns: repeat(3, minmax(0, 1fr));
-    border-top: 1px solid var(--line); border-bottom: 1px solid var(--line);
-    margin-block-end: 56px;
+  /* bands */
+  .band { padding-block: 72px; border-bottom: 1px solid var(--line); }
+  .band.alt { background: var(--band); }
+  .section-head { display: grid; gap: 14px; margin-bottom: 40px; max-width: 44rem; }
+
+  /* hero */
+  .hero { padding-block: 40px 72px; border-bottom: 1px solid var(--line); }
+  .hero .banner { border: 1px solid var(--line); margin-bottom: 48px; }
+  .hero .banner img { display: block; width: 100%; height: auto; }
+  .hero-text { display: grid; gap: 24px; max-width: 48rem; }
+
+  /* what we sell */
+  .sell { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 20px; }
+  .sell-card {
+    background: var(--surface); border: 1px solid var(--line); padding: 28px; display: grid; gap: 14px; align-content: start;
+    clip-path: polygon(0 0, calc(100% - 28px) 0, 100% 28px, 100% 100%, 0 100%);
   }
+  .tags { display: flex; flex-wrap: wrap; gap: 8px; list-style: none; margin: 4px 0 0; padding: 0; }
+  .tags li { font: 500 0.78rem/1 var(--font-display); letter-spacing: 0.08em; padding: 8px 10px; border: 1px solid var(--line); color: var(--fg); }
+
+  /* steps */
+  .steps { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 0; list-style: none; margin: 0; padding: 0; border-top: 1px solid var(--line); counter-reset: step; }
+  .steps li { padding: 28px 24px 8px 0; display: grid; gap: 10px; align-content: start; counter-increment: step; }
+  .steps li + li { padding-left: 24px; border-left: 1px solid var(--line); }
+  .steps li::before { content: "0" counter(step); font: 600 2.4rem/1 var(--font-display); color: var(--muted); }
+
+  /* policies */
+  .facts { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); margin: 0; border-top: 1px solid var(--line); border-bottom: 1px solid var(--line); }
   .fact { padding: 22px 20px 24px 0; display: grid; gap: 6px; }
   .fact + .fact { padding-left: 20px; border-left: 1px solid var(--line); }
-  .fact dt {
-    font-family: var(--font-display); font-weight: 600; font-size: 0.8rem;
-    letter-spacing: 0.2em; text-transform: uppercase;
-  }
+  .fact dt { font: 600 0.8rem/1.3 var(--font-display); letter-spacing: 0.2em; text-transform: uppercase; }
   .fact dd { margin: 0; color: var(--muted); font-size: 0.95rem; }
 
-  footer { padding-block: 0 40px; color: var(--muted); font-size: 0.85rem; display: flex; flex-wrap: wrap; gap: 8px 24px; }
+  /* cta */
+  .cta { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 24px; }
 
-  @media (max-width: 640px) {
-    .wordmark { font-size: 0.78rem; letter-spacing: 0.22em; }
-    .bar-link { display: none; }
-    .intro { padding-block: 40px 32px; }
-    .facts { grid-template-columns: 1fr; }
-    .fact { padding: 18px 0; }
-    .fact + .fact { padding-left: 0; border-left: 0; border-top: 1px solid var(--line); }
+  /* inner pages */
+  .page-head { padding-block: 64px 40px; border-bottom: 1px solid var(--line); display: grid; gap: 16px; }
+  .prose { display: grid; gap: 18px; max-width: 40rem; padding-block: 48px 72px; }
+  .prose h2 { font-size: 1.35rem; margin-top: 18px; }
+  .contact-grid { display: grid; grid-template-columns: minmax(0, 1.2fr) minmax(0, 1fr); gap: 20px; padding-block: 48px 72px; }
+  .panel { background: var(--surface); border: 1px solid var(--line); padding: 28px; display: grid; gap: 14px; align-content: start; min-width: 0; }
+  .mail { display: flex; align-items: center; gap: 10px; flex-wrap: wrap; min-width: 0; }
+  .mail a { font: 600 1.15rem/1.3 var(--font-body); overflow-wrap: anywhere; text-underline-offset: 5px; text-decoration-color: var(--line); }
+  .copy { border: 1px solid var(--line); background: transparent; color: var(--muted); cursor: pointer; font: 500 0.75rem/1 var(--font-display); letter-spacing: 0.14em; text-transform: uppercase; padding: 8px 10px; }
+  .copy:hover { color: var(--fg); border-color: var(--muted); }
+  .plain { margin: 0; padding-left: 1.1em; display: grid; gap: 8px; color: var(--muted); }
+
+  footer { padding-block: 36px 48px; color: var(--muted); font-size: 0.85rem; }
+  footer .wrap { display: flex; flex-wrap: wrap; justify-content: space-between; gap: 12px 24px; }
+  footer nav { display: flex; gap: 20px; flex-wrap: wrap; }
+  footer a { text-decoration: none; }
+  footer a:hover { color: var(--fg); }
+
+  @media (max-width: 760px) {
+    .sell, .contact-grid { grid-template-columns: 1fr; }
+    .steps, .facts { grid-template-columns: 1fr; }
+    .steps li, .steps li + li { padding: 22px 0 18px; border-left: 0; }
+    .steps li + li { border-top: 1px solid var(--line); }
+    .fact, .fact + .fact { padding: 18px 0; border-left: 0; }
+    .fact + .fact { border-top: 1px solid var(--line); }
+    .band { padding-block: 52px; }
+  }
+  @media (max-width: 560px) {
+    .wordmark { display: none; }
+    .menu { gap: 4px 16px; }
+    .menu a { font-size: 0.74rem; letter-spacing: 0.12em; }
+    .hero { padding-block: 24px 52px; }
+    .hero .banner { margin-bottom: 32px; }
   }
   @media (prefers-reduced-motion: reduce) { * { transition: none !important; } }
 </style>
 </head>
 <body>
-
-<div class="wrap">
-  <header class="bar">
-    <a class="brand" href="#" aria-label="Spano Technologies home">
-      <img class="m-dark" src="assets/mark-dark-256.png" alt="">
-      <img class="m-light" src="assets/mark-light-256.png" alt="">
+<header class="bar">
+  <div class="wrap">
+    <a class="brand" href="index.html" aria-label="Spano Technologies home">
+      <img class="on-dark" src="assets/mark-dark-256.png" alt="">
+      <img class="on-light" src="assets/mark-light-256.png" alt="">
       <span class="wordmark">Spano Technologies</span>
     </a>
-    <a class="bar-link" href="https://www.ebay.com/str/spanotechnologies" target="_blank" rel="noopener">eBay store ↗</a>
-  </header>
-
-  <div class="hero">
-    <img class="b-dark" src="assets/banner-dark.png" width="2668" height="606" alt="Spano Technologies">
-    <img class="b-light" src="assets/banner-light.png" width="2668" height="605" alt="Spano Technologies">
+    <nav class="menu" aria-label="Main"><a href="index.html" aria-current="page">Home</a><a href="about.html">About</a><a href="contact.html">Contact</a><a class="btn small" href="https://www.ebay.com/str/spanotechnologies" target="_blank" rel="noopener">Shop ↗</a></nav>
   </div>
-
-  <main class="intro">
-    <p class="eyebrow">Business laptops · Laptop memory</p>
-    <h1>Used business laptops and RAM, tested and described plainly.</h1>
-    <p class="lede">Spano Technologies resells used business laptops and laptop memory through eBay. Every unit is checked before it is listed, and the listing says what works and what doesn't.</p>
-    <div class="actions">
-      <a class="btn" href="https://www.ebay.com/str/spanotechnologies" target="_blank" rel="noopener">Shop on eBay ↗</a>
-      <div class="mail">
-        <a id="email" href="mailto:cole@spanotechnologies.com">cole@spanotechnologies.com</a>
-        <button class="copy" id="copy-email" type="button">Copy</button>
+</header>
+<main>
+<section class="hero">
+  <div class="wrap">
+    <div class="banner">
+      <img class="on-dark" src="assets/banner-dark.png" width="2668" height="606" alt="Spano Technologies">
+      <img class="on-light" src="assets/banner-light.png" width="2668" height="605" alt="Spano Technologies">
+    </div>
+    <div class="hero-text">
+      <p class="eyebrow">Business laptops · Computer memory</p>
+      <h1>Used business laptops and RAM, tested and described plainly.</h1>
+      <p class="lede">Spano Technologies resells used business laptops and memory through eBay. Every unit is checked before it is listed, and the listing says what works and what doesn't.</p>
+      <div class="actions">
+        <a class="btn" href="https://www.ebay.com/str/spanotechnologies" target="_blank" rel="noopener">Shop on eBay ↗</a>
+        <a class="btn ghost" href="about.html">How it works</a>
       </div>
     </div>
-  </main>
+  </div>
+</section>
 
-  <dl class="facts">
-    <div class="fact"><dt>Tested first</dt><dd>Powered on and checked before it is listed.</dd></div>
-    <div class="fact"><dt>1-day handling</dt><dd>Orders ship within one business day.</dd></div>
-    <div class="fact"><dt>30-day returns</dt><dd>On every used item sold on eBay.</dd></div>
-  </dl>
+<section class="band alt">
+  <div class="wrap">
+    <div class="section-head">
+      <p class="eyebrow">What we sell</p>
+      <h2>Machines built for work, and the memory that goes in them.</h2>
+    </div>
+    <div class="sell">
+      <article class="sell-card">
+        <h3>Business laptops</h3>
+        <p class="muted">Lenovo ThinkPads, Dell Latitude and Precision workstations, and MacBooks. Sold working, or clearly marked for parts when they aren't.</p>
+        <ul class="tags">
+          <li>ThinkPad X1 Carbon</li><li>ThinkPad T-series</li><li>Dell Latitude</li><li>Dell Precision</li><li>MacBook Air / Pro</li>
+        </ul>
+      </article>
+      <article class="sell-card">
+        <h3>Memory</h3>
+        <p class="muted">Laptop and desktop RAM, sold as single sticks and matched kits. Speed, capacity and type are listed from the label on the stick.</p>
+        <ul class="tags">
+          <li>DDR3</li><li>DDR4</li><li>DDR5</li><li>SODIMM</li><li>Matched kits</li>
+        </ul>
+      </article>
+    </div>
+  </div>
+</section>
 
-  <footer>
-    <span>© 2026 Spano Technologies</span>
-    <span>Sold on eBay as spanotechnologies</span>
-  </footer>
-</div>
+<section class="band">
+  <div class="wrap">
+    <div class="section-head">
+      <p class="eyebrow">Before a unit is listed</p>
+      <h2>Three steps, every time.</h2>
+    </div>
+    <ol class="steps">
+      <li><h3>Tested</h3><p class="muted">Powered on and checked: BIOS, battery, screen, keyboard and ports.</p></li>
+      <li><h3>Described</h3><p class="muted">Photographed and written up plainly, faults included, so what arrives matches the listing.</p></li>
+      <li><h3>Shipped</h3><p class="muted">Boxed and wrapped, and out the door within one business day of the order.</p></li>
+    </ol>
+  </div>
+</section>
 
-<script>
-  (function () {
-    var btn = document.getElementById('copy-email');
-    var addr = 'cole@spanotechnologies.com';
-    btn.addEventListener('click', function () {
-      function done(ok) {
-        btn.textContent = ok ? 'Copied' : 'Select it';
-        setTimeout(function () { btn.textContent = 'Copy'; }, 1800);
-        if (!ok) {
-          var r = document.createRange();
-          r.selectNodeContents(document.getElementById('email'));
-          var s = window.getSelection(); s.removeAllRanges(); s.addRange(r);
-        }
-      }
-      try {
-        navigator.clipboard.writeText(addr).then(function () { done(true); }, function () { done(false); });
-      } catch (e) { done(false); }
-    });
-  })();
-</script>
+<section class="band alt">
+  <div class="wrap">
+    <dl class="facts">
+      <div class="fact"><dt>30-day returns</dt><dd>On every used item sold on eBay.</dd></div>
+      <div class="fact"><dt>1-day handling</dt><dd>Orders ship within one business day.</dd></div>
+      <div class="fact"><dt>Parts units</dt><dd>Sold as-is and labeled for parts in the title.</dd></div>
+    </dl>
+  </div>
+</section>
+
+<section class="band">
+  <div class="wrap cta">
+    <div class="section-head" style="margin-bottom:0">
+      <h2>See what's in stock now.</h2>
+      <p class="muted">Every current listing is in the eBay store.</p>
+    </div>
+    <a class="btn" href="https://www.ebay.com/str/spanotechnologies" target="_blank" rel="noopener">Visit the eBay store ↗</a>
+  </div>
+</section>
+</main>
+<footer>
+  <div class="wrap">
+    <span>© 2026 Spano Technologies · cole@spanotechnologies.com</span>
+    <nav aria-label="Footer"><a href="index.html">Home</a><a href="about.html">About</a><a href="contact.html">Contact</a><a href="https://www.ebay.com/str/spanotechnologies" target="_blank" rel="noopener">eBay store ↗</a></nav>
+  </div>
+</footer>
 </body>
 </html>
