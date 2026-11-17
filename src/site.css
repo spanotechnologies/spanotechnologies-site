@@ -212,6 +212,9 @@
   .sold-head { display: flex; justify-content: space-between; align-items: baseline; gap: 16px; margin: 64px 0 0; padding-bottom: 14px; border-bottom: 1px solid var(--fg); }
   .sold-head h3 { font-size: 1.2rem; }
   .sold-cols { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 0 56px; }
+  .sold-wide { grid-column: 1 / -1; margin-top: 24px; }
+  .sold-wide .sold { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); column-gap: 56px; }
+  .sell.three { grid-template-columns: repeat(3, minmax(0, 1fr)); }
   .sold-cols h4 { margin: 0; padding: 22px 0 12px; font: 500 0.7rem/1 var(--font-mono); letter-spacing: 0.18em; text-transform: uppercase; color: var(--dim); border-bottom: 1px solid var(--line); }
   .sold { list-style: none; margin: 0; padding: 0; }
   .sold li { display: grid; grid-template-columns: minmax(0, 1fr) auto; gap: 4px 20px; align-items: center; padding: 14px 0; border-bottom: 1px solid var(--line); }
@@ -304,6 +307,8 @@
 
   @media (max-width: 1020px) {
     .wordmark { display: none; }
+    .sell.three { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+    .sell.three .sell-card:last-child { grid-column: 1 / -1; }
     .menu { gap: 4px 20px; }
     .foot-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
   }
@@ -323,7 +328,8 @@
     .faq details p { padding-right: 0; }
     .section-head.split { grid-template-columns: 1fr; }
     .stock.one .stock-card { grid-template-columns: 1fr; }
-    .sold-cols { grid-template-columns: 1fr; }
+    .sold-cols, .sold-wide .sold, .sell.three { grid-template-columns: 1fr; }
+    .sell.three .sell-card:last-child { grid-column: auto; }
     .road li { grid-template-columns: 1fr; padding: 28px 0; }
     .head-mark { width: 110%; right: -40%; }
     .quotes { columns: auto; display: flex; gap: 14px; overflow-x: auto; scroll-snap-type: x mandatory; margin-inline: calc(-1 * max(20px, env(safe-area-inset-left, 0px))); padding-inline: max(20px, env(safe-area-inset-left, 0px)); scrollbar-width: none; }

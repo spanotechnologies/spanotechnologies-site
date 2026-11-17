@@ -22,5 +22,9 @@
   ["16GB DDR4-3200 SODIMM", "Single stick / Crucial"],
   ["16GB DDR4-2400 UDIMM", "2x8GB desktop kit / ADATA"],
   ["8GB DDR4-2666 UDIMM", "Single stick / Samsung"]
+ ],
+ "other": [
+  ["iPad Pro 11\" (4th gen)", "128GB / with Magic Keyboard"],
+  ["Apple Watch Series 10", "46mm / GPS + Cellular / Jet Black"]
  ]
 }

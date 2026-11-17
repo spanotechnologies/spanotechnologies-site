@@ -3,13 +3,13 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-<title>Spano Technologies | Used business laptops and RAM</title>
-<meta name="description" content="Used business laptops and computer memory, checked by hand and sold on eBay since 2014. 100% positive feedback.">
+<title>Spano Technologies | Used electronics, tested by hand</title>
+<meta name="description" content="Used electronics, specializing in business laptops and memory, plus iPhones and iPads. Tested by hand and sold on eBay since 2014. 100% positive feedback.">
 <link rel="icon" type="image/svg+xml" href="/assets/favicon.svg">
 <link rel="icon" type="image/png" href="/assets/favicon.png">
 <link rel="apple-touch-icon" href="/assets/apple-touch-icon.png">
-<meta property="og:title" content="Spano Technologies | Used business laptops and RAM">
-<meta property="og:description" content="Used business laptops and computer memory, checked by hand and sold on eBay since 2014. 100% positive feedback.">
+<meta property="og:title" content="Spano Technologies | Used electronics, tested by hand">
+<meta property="og:description" content="Used electronics, specializing in business laptops and memory, plus iPhones and iPads. Tested by hand and sold on eBay since 2014. 100% positive feedback.">
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="Spano Technologies">
 <meta property="og:url" content="https://spanotechnologies.com/">
@@ -239,6 +239,9 @@
   .sold-head { display: flex; justify-content: space-between; align-items: baseline; gap: 16px; margin: 64px 0 0; padding-bottom: 14px; border-bottom: 1px solid var(--fg); }
   .sold-head h3 { font-size: 1.2rem; }
   .sold-cols { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 0 56px; }
+  .sold-wide { grid-column: 1 / -1; margin-top: 24px; }
+  .sold-wide .sold { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); column-gap: 56px; }
+  .sell.three { grid-template-columns: repeat(3, minmax(0, 1fr)); }
   .sold-cols h4 { margin: 0; padding: 22px 0 12px; font: 500 0.7rem/1 var(--font-mono); letter-spacing: 0.18em; text-transform: uppercase; color: var(--dim); border-bottom: 1px solid var(--line); }
   .sold { list-style: none; margin: 0; padding: 0; }
   .sold li { display: grid; grid-template-columns: minmax(0, 1fr) auto; gap: 4px 20px; align-items: center; padding: 14px 0; border-bottom: 1px solid var(--line); }
@@ -331,6 +334,8 @@
 
   @media (max-width: 1020px) {
     .wordmark { display: none; }
+    .sell.three { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+    .sell.three .sell-card:last-child { grid-column: 1 / -1; }
     .menu { gap: 4px 20px; }
     .foot-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
   }
@@ -350,7 +355,8 @@
     .faq details p { padding-right: 0; }
     .section-head.split { grid-template-columns: 1fr; }
     .stock.one .stock-card { grid-template-columns: 1fr; }
-    .sold-cols { grid-template-columns: 1fr; }
+    .sold-cols, .sold-wide .sold, .sell.three { grid-template-columns: 1fr; }
+    .sell.three .sell-card:last-child { grid-column: auto; }
     .road li { grid-template-columns: 1fr; padding: 28px 0; }
     .head-mark { width: 110%; right: -40%; }
     .quotes { columns: auto; display: flex; gap: 14px; overflow-x: auto; scroll-snap-type: x mandatory; margin-inline: calc(-1 * max(20px, env(safe-area-inset-left, 0px))); padding-inline: max(20px, env(safe-area-inset-left, 0px)); scrollbar-width: none; }
@@ -411,13 +417,13 @@
 </div>
   <div class="wrap">
     <div class="hero-text">
-      <p class="eyebrow">Business laptops · Computer memory</p>
+      <p class="eyebrow">Laptops · Memory · iPhone · iPad</p>
       <h1>
-        <span class="line"><span>Used business</span></span>
-        <span class="line"><span>laptops and RAM.</span></span>
-        <span class="line"><span class="outline">Trusted on eBay since 2014.</span></span>
+        <span class="line"><span>Used electronics.</span></span>
+        <span class="line"><span class="outline">Trusted on eBay</span></span>
+        <span class="line"><span class="outline">since 2014.</span></span>
       </h1>
-      <p class="lede">Every unit is tested by hand and ships within one business day.</p>
+      <p class="lede">Specializing in business laptops and memory. Every unit is tested by hand and ships within one business day.</p>
       <div class="actions">
         <a class="btn" href="https://www.ebay.com/str/spanotechnologies" target="_blank" rel="noopener">Shop on eBay <svg class="arr" viewBox="0 0 12 12" aria-hidden="true" focusable="false"><path d="M2 10 10 2M3.5 2H10v6.5" fill="none" stroke="currentColor" stroke-width="1.7"/></svg></a>
         <a class="btn ghost" href="#stock">See what's in stock</a>
@@ -430,10 +436,10 @@
 <div class="ticker" aria-label="Examples of what we sell">
   <div class="ticker-track">
     <ul>
-      <li>ThinkPad X1 Carbon</li><li>ThinkPad T14s</li><li>Dell Latitude</li><li>Dell Precision</li><li>MacBook Air</li><li>MacBook Pro</li><li>DDR4 SODIMM</li><li>DDR5 kits</li><li>Server RDIMM</li>
+      <li>ThinkPad X1 Carbon</li><li>Dell Latitude</li><li>Dell Precision</li><li>MacBook Air</li><li>iPad Pro</li><li>iPhone</li><li>DDR4 SODIMM</li><li>DDR5 kits</li><li>Server RDIMM</li>
     </ul>
     <ul aria-hidden="true">
-      <li>ThinkPad X1 Carbon</li><li>ThinkPad T14s</li><li>Dell Latitude</li><li>Dell Precision</li><li>MacBook Air</li><li>MacBook Pro</li><li>DDR4 SODIMM</li><li>DDR5 kits</li><li>Server RDIMM</li>
+      <li>ThinkPad X1 Carbon</li><li>Dell Latitude</li><li>Dell Precision</li><li>MacBook Air</li><li>iPad Pro</li><li>iPhone</li><li>DDR4 SODIMM</li><li>DDR5 kits</li><li>Server RDIMM</li>
     </ul>
   </div>
 </div>
@@ -442,9 +448,9 @@
   <div class="wrap">
     <div class="section-head">
       <p class="eyebrow">What we sell</p>
-      <h2>Machines built for work, and the memory that goes in them.</h2>
+      <h2>Laptops and memory first. Plenty more besides.</h2>
     </div>
-    <div class="sell">
+    <div class="sell three">
       <article class="sell-card">
         <h3>Business laptops</h3>
         <p class="muted">Lenovo ThinkPads, Dell Latitude and Precision workstations, and MacBooks. Sold working, or clearly marked for parts when they aren't.</p>
@@ -459,6 +465,13 @@
           <li>DDR3</li><li>DDR4</li><li>DDR5</li><li>SODIMM</li><li>UDIMM</li><li>RDIMM</li>
         </ul>
       </article>
+      <article class="sell-card">
+        <h3>iPhone &amp; iPad</h3>
+        <p class="muted">Checked for Activation Lock, battery health and carrier status before they are listed, along with other electronics as they come in.</p>
+        <ul class="tags">
+          <li>iPhone</li><li>iPad</li><li>iPad Pro</li><li>Activation Lock off</li><li>Battery health listed</li>
+        </ul>
+      </article>
     </div>
   </div>
 </section>
@@ -470,7 +483,7 @@
       <h2>Three steps, every time.</h2>
     </div>
     <ol class="steps">
-      <li><h3>Tested</h3><p class="muted">Powered on and checked: BIOS, battery, screen, keyboard and ports.</p></li>
+      <li><h3>Tested</h3><p class="muted">Powered on and checked. Laptops: BIOS, battery, screen, keyboard and ports. iPhones and iPads: Activation Lock, battery health and carrier status.</p></li>
       <li><h3>Described</h3><p class="muted">Photographed and written up plainly, faults included, so what arrives matches the listing.</p></li>
       <li><h3>Shipped</h3><p class="muted">Boxed and wrapped, and out the door within one business day of the order.</p></li>
     </ol>
@@ -510,6 +523,7 @@
     <div class="sold-cols">
       <div><h4>Laptops</h4><ul class="sold"><li><b>Lenovo Legion Pro 7i</b><span>Ultra 9 275HX / RTX 5090 / 64GB</span><em>Sold</em></li><li><b>Dell Precision 3571</b><span>i7-12800H / NVIDIA T600 / 32GB DDR5</span><em>Sold</em></li><li><b>Dell Vostro 7620</b><span>i7-12700H / RTX 3050 Ti / 16GB DDR5</span><em>Sold</em></li><li><b>ThinkPad T14s Gen 2</b><span>i7-1185G7 / 32GB / Touch</span><em>Sold</em></li><li><b>ThinkPad X1 Carbon Gen 9</b><span>i7-1165G7 / 16GB / WUXGA</span><em>Sold</em></li><li><b>ThinkPad X1 Yoga Gen 5</b><span>i5-10210U / 16GB / Touch</span><em>Sold</em></li><li><b>Dell Latitude 5520</b><span>i7-1185G7 / 16GB / Touch</span><em>Sold</em></li><li><b>Dell Latitude 3540</b><span>i7-1355U / 16GB</span><em>Sold</em></li><li><b>MacBook Air M2 13.6&quot;</b><span>8GB / 256GB</span><em>Sold</em></li><li><b>MacBook Air M1</b><span>16GB / 512GB</span><em>Sold</em></li></ul></div>
       <div><h4>Memory</h4><ul class="sold"><li><b>128GB DDR4-2666 RDIMM</b><span>4x32GB server kit / SK hynix</span><em>Sold</em></li><li><b>64GB DDR4-2666 RDIMM</b><span>4x16GB server kit / SK hynix</span><em>Sold</em></li><li><b>64GB DDR5-4800 SODIMM</b><span>2x32GB laptop kit / Micron</span><em>Sold</em></li><li><b>32GB DDR5-5600 SODIMM</b><span>2x16GB laptop kit / Crucial</span><em>Sold</em></li><li><b>32GB DDR4-2400 UDIMM</b><span>4x8GB desktop kit / SK hynix</span><em>Sold</em></li><li><b>16GB DDR4-3200 SODIMM</b><span>2x8GB laptop kit / Samsung</span><em>Sold</em></li><li><b>16GB DDR4-3200 UDIMM</b><span>2x8GB desktop kit / Micron</span><em>Sold</em></li><li><b>16GB DDR4-3200 SODIMM</b><span>Single stick / Crucial</span><em>Sold</em></li><li><b>16GB DDR4-2400 UDIMM</b><span>2x8GB desktop kit / ADATA</span><em>Sold</em></li><li><b>8GB DDR4-2666 UDIMM</b><span>Single stick / Samsung</span><em>Sold</em></li></ul></div>
+      <div class="sold-wide"><h4>Apple and more</h4><ul class="sold"><li><b>iPad Pro 11&quot; (4th gen)</b><span>128GB / with Magic Keyboard</span><em>Sold</em></li><li><b>Apple Watch Series 10</b><span>46mm / GPS + Cellular / Jet Black</span><em>Sold</em></li></ul></div>
     </div>
   </div>
 </section>
@@ -545,7 +559,7 @@
   <div class="wrap">
     <div class="foot-word" aria-hidden="true">Spano Technologies</div>
     <div class="foot-grid">
-      <div><svg class="mark" viewBox="0 0 856 258" aria-hidden="true" focusable="false"><polygon points="157,0 482,0 418,64 288,64 257,96 513,96 352,257 0,257 64,193 320,193 352,161 96,161 194,63"/><polygon points="531,0 855,0 791,64 693,64 500,257 405,257 597,64 467,64"/></svg><p>Used business laptops and computer memory, checked by hand and sold on eBay since 2014.</p></div>
+      <div><svg class="mark" viewBox="0 0 856 258" aria-hidden="true" focusable="false"><polygon points="157,0 482,0 418,64 288,64 257,96 513,96 352,257 0,257 64,193 320,193 352,161 96,161 194,63"/><polygon points="531,0 855,0 791,64 693,64 500,257 405,257 597,64 467,64"/></svg><p>Used electronics, specializing in business laptops and memory. Tested by hand and sold on eBay since 2014.</p></div>
       <div><h4>Shop</h4><nav aria-label="Shop"><a href="https://www.ebay.com/str/spanotechnologies" target="_blank" rel="noopener">eBay store <svg class="arr" viewBox="0 0 12 12" aria-hidden="true" focusable="false"><path d="M2 10 10 2M3.5 2H10v6.5" fill="none" stroke="currentColor" stroke-width="1.7"/></svg></a><a href="https://www.ebay.com/fdbk/feedback_profile/spanotechnologies" target="_blank" rel="noopener">Feedback <svg class="arr" viewBox="0 0 12 12" aria-hidden="true" focusable="false"><path d="M2 10 10 2M3.5 2H10v6.5" fill="none" stroke="currentColor" stroke-width="1.7"/></svg></a><a href="index.html#stock">In stock now</a></nav></div>
       <div><h4>Info</h4><nav aria-label="Info"><a href="guide.html">Buying guide</a><a href="faq.html">FAQ</a><a href="about.html">About</a><a href="roadmap.html">What's next</a></nav></div>
       <div><h4>Contact</h4><nav aria-label="Contact"><a href="contact.html">Contact page</a><a href="mailto:cole@spanotechnologies.com">cole@spanotechnologies.com</a></nav></div>

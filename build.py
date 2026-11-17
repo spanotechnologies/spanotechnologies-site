@@ -92,7 +92,7 @@ FOOTER = f'''<footer>
   <div class="wrap">
     <div class="foot-word" aria-hidden="true">Spano Technologies</div>
     <div class="foot-grid">
-      <div>{MARK}<p>Used business laptops and computer memory, checked by hand and sold on eBay since {DATA["SINCE"]}.</p></div>
+      <div>{MARK}<p>Used electronics, specializing in business laptops and memory. Tested by hand and sold on eBay since {DATA["SINCE"]}.</p></div>
       <div><h4>Shop</h4><nav aria-label="Shop"><a href="{EBAY}" target="_blank" rel="noopener">eBay store {ARR}</a><a href="{FEEDBACK}" target="_blank" rel="noopener">Feedback {ARR}</a><a href="index.html#stock">In stock now</a></nav></div>
       <div><h4>Info</h4><nav aria-label="Info"><a href="guide.html">Buying guide</a><a href="faq.html">FAQ</a><a href="about.html">About</a><a href="roadmap.html">What's next</a></nav></div>
       <div><h4>Contact</h4><nav aria-label="Contact"><a href="contact.html">Contact page</a><a href="mailto:cole@spanotechnologies.com">cole@spanotechnologies.com</a></nav></div>
@@ -143,7 +143,7 @@ def page(name):
         raw = raw.replace('{{' + k + '}}', v)
     if '{{STOCK}}' in raw:
         raw = raw.replace('{{STOCK}}', stock_block())
-    raw = (raw.replace('{{QUOTES}}', quote_block()).replace('{{SOLD_LAPTOPS}}', sold_block('laptops')).replace('{{SOLD_MEMORY}}', sold_block('memory'))
+    raw = (raw.replace('{{QUOTES}}', quote_block()).replace('{{SOLD_LAPTOPS}}', sold_block('laptops')).replace('{{SOLD_MEMORY}}', sold_block('memory')).replace('{{SOLD_OTHER}}', sold_block('other'))
               .replace('{{HERO_MARK}}', HERO_MARK).replace('{{EBAY}}', EBAY).replace('{{FEEDBACK_URL}}', FEEDBACK)
               .replace(' ↗', ' ' + ARR)
               .replace('<section class="page-head">',

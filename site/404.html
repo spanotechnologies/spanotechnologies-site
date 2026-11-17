@@ -237,6 +237,9 @@
   .sold-head { display: flex; justify-content: space-between; align-items: baseline; gap: 16px; margin: 64px 0 0; padding-bottom: 14px; border-bottom: 1px solid var(--fg); }
   .sold-head h3 { font-size: 1.2rem; }
   .sold-cols { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 0 56px; }
+  .sold-wide { grid-column: 1 / -1; margin-top: 24px; }
+  .sold-wide .sold { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); column-gap: 56px; }
+  .sell.three { grid-template-columns: repeat(3, minmax(0, 1fr)); }
   .sold-cols h4 { margin: 0; padding: 22px 0 12px; font: 500 0.7rem/1 var(--font-mono); letter-spacing: 0.18em; text-transform: uppercase; color: var(--dim); border-bottom: 1px solid var(--line); }
   .sold { list-style: none; margin: 0; padding: 0; }
   .sold li { display: grid; grid-template-columns: minmax(0, 1fr) auto; gap: 4px 20px; align-items: center; padding: 14px 0; border-bottom: 1px solid var(--line); }
@@ -329,6 +332,8 @@
 
   @media (max-width: 1020px) {
     .wordmark { display: none; }
+    .sell.three { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+    .sell.three .sell-card:last-child { grid-column: 1 / -1; }
     .menu { gap: 4px 20px; }
     .foot-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
   }
@@ -348,7 +353,8 @@
     .faq details p { padding-right: 0; }
     .section-head.split { grid-template-columns: 1fr; }
     .stock.one .stock-card { grid-template-columns: 1fr; }
-    .sold-cols { grid-template-columns: 1fr; }
+    .sold-cols, .sold-wide .sold, .sell.three { grid-template-columns: 1fr; }
+    .sell.three .sell-card:last-child { grid-column: auto; }
     .road li { grid-template-columns: 1fr; padding: 28px 0; }
     .head-mark { width: 110%; right: -40%; }
     .quotes { columns: auto; display: flex; gap: 14px; overflow-x: auto; scroll-snap-type: x mandatory; margin-inline: calc(-1 * max(20px, env(safe-area-inset-left, 0px))); padding-inline: max(20px, env(safe-area-inset-left, 0px)); scrollbar-width: none; }
@@ -406,7 +412,7 @@
   <div class="wrap">
     <div class="foot-word" aria-hidden="true">Spano Technologies</div>
     <div class="foot-grid">
-      <div><svg class="mark" viewBox="0 0 856 258" aria-hidden="true" focusable="false"><polygon points="157,0 482,0 418,64 288,64 257,96 513,96 352,257 0,257 64,193 320,193 352,161 96,161 194,63"/><polygon points="531,0 855,0 791,64 693,64 500,257 405,257 597,64 467,64"/></svg><p>Used business laptops and computer memory, checked by hand and sold on eBay since 2014.</p></div>
+      <div><svg class="mark" viewBox="0 0 856 258" aria-hidden="true" focusable="false"><polygon points="157,0 482,0 418,64 288,64 257,96 513,96 352,257 0,257 64,193 320,193 352,161 96,161 194,63"/><polygon points="531,0 855,0 791,64 693,64 500,257 405,257 597,64 467,64"/></svg><p>Used electronics, specializing in business laptops and memory. Tested by hand and sold on eBay since 2014.</p></div>
       <div><h4>Shop</h4><nav aria-label="Shop"><a href="https://www.ebay.com/str/spanotechnologies" target="_blank" rel="noopener">eBay store <svg class="arr" viewBox="0 0 12 12" aria-hidden="true" focusable="false"><path d="M2 10 10 2M3.5 2H10v6.5" fill="none" stroke="currentColor" stroke-width="1.7"/></svg></a><a href="https://www.ebay.com/fdbk/feedback_profile/spanotechnologies" target="_blank" rel="noopener">Feedback <svg class="arr" viewBox="0 0 12 12" aria-hidden="true" focusable="false"><path d="M2 10 10 2M3.5 2H10v6.5" fill="none" stroke="currentColor" stroke-width="1.7"/></svg></a><a href="/#stock">In stock now</a></nav></div>
       <div><h4>Info</h4><nav aria-label="Info"><a href="/guide.html">Buying guide</a><a href="/faq.html">FAQ</a><a href="/about.html">About</a><a href="/roadmap.html">What's next</a></nav></div>
       <div><h4>Contact</h4><nav aria-label="Contact"><a href="/contact.html">Contact page</a><a href="mailto:cole@spanotechnologies.com">cole@spanotechnologies.com</a></nav></div>
