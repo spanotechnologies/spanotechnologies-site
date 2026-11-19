@@ -112,6 +112,7 @@
   .menu-open .sheet nav a:nth-child(1) { transition-delay: .12s; } .menu-open .sheet nav a:nth-child(2) { transition-delay: .17s; }
   .menu-open .sheet nav a:nth-child(3) { transition-delay: .22s; } .menu-open .sheet nav a:nth-child(4) { transition-delay: .27s; }
   .menu-open .sheet nav a:nth-child(5) { transition-delay: .32s; } .menu-open .sheet nav a:nth-child(6) { transition-delay: .37s; }
+  .menu-open .sheet nav a:nth-child(7) { transition-delay: .42s; }
   .sheet-foot { display: grid; gap: 16px; }
   .sheet-foot .btn { justify-content: center; }
   html.menu-open, html.menu-open body { overflow: hidden; }
@@ -317,7 +318,7 @@
   .foot-grid { display: grid; grid-template-columns: minmax(0, 1.4fr) repeat(3, minmax(0, 1fr)); gap: 32px 24px; padding-block: 32px 44px; border-top: 1px solid var(--line); }
   .foot-grid .mark { width: 84px; fill: var(--fg); display: block; margin-bottom: 18px; }
   .foot-grid p { color: var(--muted); font-size: 0.92rem; max-width: 22rem; }
-  .foot-grid h4 { margin: 0 0 14px; font: 500 0.7rem/1 var(--font-mono); letter-spacing: 0.18em; text-transform: uppercase; color: var(--dim); }
+  .foot-grid h2 { margin: 0 0 14px; font: 500 0.7rem/1 var(--font-mono); letter-spacing: 0.18em; text-transform: uppercase; color: var(--dim); }
   .foot-grid nav { display: grid; gap: 10px; align-content: start; font-size: 0.95rem; }
   .foot-grid nav a { text-decoration: none; color: var(--muted); display: inline-flex; align-items: center; gap: 7px; justify-self: start; transition: color .2s; overflow-wrap: anywhere; }
   .foot-grid nav a:hover { color: var(--fg); }
@@ -434,6 +435,9 @@
     <details><summary>Can I make an offer?</summary><p>Most listings accept Best Offer on eBay. Send one from the listing page.</p></details>
     <details><summary>Can I buy directly, outside eBay?</summary><p>No. Every sale goes through eBay, so your purchase is covered by eBay's Money Back Guarantee.</p></details>
 
+    <h2>For businesses</h2>
+    <details><summary>Do you pick up old company laptops?</summary><p>Yes. Offices in Philadelphia, the Main Line and Delaware County with three or more laptops or desktops get a free pickup, with the drives destroyed on site. See <a href="pickup.html">business pickup</a>.</p></details>
+
     <div class="actions" style="margin-top:28px">
       <a class="btn" href="https://www.ebay.com/str/spanotechnologies" target="_blank" rel="noopener">Shop on eBay <svg class="arr" viewBox="0 0 12 12" aria-hidden="true" focusable="false"><path d="M2 10 10 2M3.5 2H10v6.5" fill="none" stroke="currentColor" stroke-width="1.7"/></svg></a>
       <a class="btn ghost" href="contact.html">Ask something else</a>
@@ -445,10 +449,10 @@
   <div class="wrap">
     <div class="foot-word" aria-hidden="true">Spano Technologies</div>
     <div class="foot-grid">
-      <div><svg class="mark" viewBox="0 0 856 258" aria-hidden="true" focusable="false"><polygon points="157,0 482,0 418,64 288,64 257,96 513,96 352,257 0,257 64,193 320,193 352,161 96,161 194,63"/><polygon points="531,0 855,0 791,64 693,64 500,257 405,257 597,64 467,64"/></svg><p>Used electronics, specializing in business laptops and memory. Tested by hand and sold on eBay since 2014.</p></div>
-      <div><h4>Shop</h4><nav aria-label="Shop"><a href="https://www.ebay.com/str/spanotechnologies" target="_blank" rel="noopener">eBay store <svg class="arr" viewBox="0 0 12 12" aria-hidden="true" focusable="false"><path d="M2 10 10 2M3.5 2H10v6.5" fill="none" stroke="currentColor" stroke-width="1.7"/></svg></a><a href="https://www.ebay.com/fdbk/feedback_profile/spanotechnologies" target="_blank" rel="noopener">Feedback <svg class="arr" viewBox="0 0 12 12" aria-hidden="true" focusable="false"><path d="M2 10 10 2M3.5 2H10v6.5" fill="none" stroke="currentColor" stroke-width="1.7"/></svg></a><a href="index.html#stock">In stock now</a></nav></div>
-      <div><h4>Info</h4><nav aria-label="Info"><a href="guide.html">Buying guide</a><a href="faq.html">FAQ</a><a href="pickup.html">Business pickup</a><a href="about.html">About</a><a href="roadmap.html">What's next</a></nav></div>
-      <div><h4>Contact</h4><nav aria-label="Contact"><a href="contact.html">Contact page</a><a href="mailto:info@spanotechnologies.com">info@spanotechnologies.com</a></nav></div>
+      <div><svg class="mark" viewBox="0 0 856 258" aria-hidden="true" focusable="false"><polygon points="157,0 482,0 418,64 288,64 257,96 513,96 352,257 0,257 64,193 320,193 352,161 96,161 194,63"/><polygon points="531,0 855,0 791,64 693,64 500,257 405,257 597,64 467,64"/></svg><p>Used electronics, specializing in business laptops and memory. Tested by hand and sold on eBay since 2014. Free business laptop pickup around Philadelphia.</p></div>
+      <div><h2>Shop</h2><nav aria-label="Shop"><a href="https://www.ebay.com/str/spanotechnologies" target="_blank" rel="noopener">eBay store <svg class="arr" viewBox="0 0 12 12" aria-hidden="true" focusable="false"><path d="M2 10 10 2M3.5 2H10v6.5" fill="none" stroke="currentColor" stroke-width="1.7"/></svg></a><a href="https://www.ebay.com/fdbk/feedback_profile/spanotechnologies" target="_blank" rel="noopener">Feedback <svg class="arr" viewBox="0 0 12 12" aria-hidden="true" focusable="false"><path d="M2 10 10 2M3.5 2H10v6.5" fill="none" stroke="currentColor" stroke-width="1.7"/></svg></a><a href="index.html#stock">In stock now</a></nav></div>
+      <div><h2>Info</h2><nav aria-label="Info"><a href="guide.html">Buying guide</a><a href="faq.html">FAQ</a><a href="pickup.html">Business pickup</a><a href="about.html">About</a><a href="roadmap.html">What's next</a></nav></div>
+      <div><h2>Contact</h2><nav aria-label="Contact"><a href="contact.html">Contact page</a><a href="mailto:info@spanotechnologies.com">info@spanotechnologies.com</a></nav></div>
     </div>
     <div class="legal"><span>© 2026 Spano Technologies</span><span>Independent seller. eBay is a trademark of eBay Inc.</span></div>
   </div>

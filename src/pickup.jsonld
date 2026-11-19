@@ -1,0 +1,35 @@
+{
+  "@context": "https://schema.org",
+  "@type": "Service",
+  "@id": "https://spanotechnologies.com/pickup#service",
+  "name": "Business laptop and desktop pickup",
+  "serviceType": "Business computer pickup with on-site drive destruction",
+  "description": "Free pickup of retired business laptops and desktops for offices with three or more devices. Drives are destroyed on site, built-in storage is erased on site unless your policy requires physical destruction, and a certificate of data destruction listing every serial number follows within 10 business days. Newer machines can get a per-unit cash offer.",
+  "url": "https://spanotechnologies.com/pickup",
+  "provider": {
+    "@type": "Organization",
+    "@id": "https://spanotechnologies.com/#organization",
+    "name": "Spano Technologies",
+    "url": "https://spanotechnologies.com/",
+    "email": "info@spanotechnologies.com"
+  },
+  "audience": {
+    "@type": "BusinessAudience",
+    "audienceType": "Offices retiring three or more laptops or desktops"
+  },
+  "areaServed": [
+    { "@type": "City", "name": "Philadelphia, Pennsylvania", "sameAs": "https://en.wikipedia.org/wiki/Philadelphia" },
+    { "@type": "AdministrativeArea", "name": "Lower Merion Township, Pennsylvania", "sameAs": "https://en.wikipedia.org/wiki/Lower_Merion_Township,_Pennsylvania" },
+    { "@type": "AdministrativeArea", "name": "Radnor Township, Pennsylvania", "sameAs": "https://en.wikipedia.org/wiki/Radnor_Township,_Pennsylvania" },
+    { "@type": "AdministrativeArea", "name": "Haverford Township, Pennsylvania", "sameAs": "https://en.wikipedia.org/wiki/Haverford_Township,_Pennsylvania" },
+    { "@type": "AdministrativeArea", "name": "Conshohocken, Pennsylvania", "sameAs": "https://en.wikipedia.org/wiki/Conshohocken,_Pennsylvania" },
+    { "@type": "AdministrativeArea", "name": "Delaware County, Pennsylvania", "sameAs": "https://en.wikipedia.org/wiki/Delaware_County,_Pennsylvania" }
+  ],
+  "offers": {
+    "@type": "Offer",
+    "price": "0",
+    "priceCurrency": "USD",
+    "description": "Free pickup for three or more laptops or desktops in the service area.",
+    "eligibleQuantity": { "@type": "QuantitativeValue", "minValue": 3, "unitText": "devices" }
+  }
+}

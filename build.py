@@ -63,9 +63,20 @@ FONTS = ('<link rel="preconnect" href="https://fonts.googleapis.com">\n'
          '<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Chakra+Petch:wght@500;600'
          '&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@500&display=swap">')
 JSONLD = ('<script type="application/ld+json">{"@context":"https://schema.org","@type":"Organization",'
+          '"@id":"https://spanotechnologies.com/#organization",'
           '"name":"Spano Technologies","url":"https://spanotechnologies.com/",'
           '"logo":"https://spanotechnologies.com/assets/apple-touch-icon.png",'
           '"email":"info@spanotechnologies.com","sameAs":["https://www.ebay.com/str/spanotechnologies"]}</script>')
+
+PICKUP_JSONLD = ('<script type="application/ld+json">'
+                 + json.dumps(json.loads((SRC / 'pickup.jsonld').read_text()), separators=(',', ':'))
+                 + '</script>')
+# One prefilled pickup-request email, used by every "Request a pickup" button.
+PICKUP_MAILTO = ('mailto:info@spanotechnologies.com?subject=Business%20pickup%20request&amp;body=Business%20name%3A%0A'
+                 'Address%3A%0AHow%20many%20devices%3A%0AMakes%20and%20models%20(rough%20is%20fine)%3A%0A'
+                 'Any%20MacBooks%3F%3A%0ABest%20days%20and%20times%3A%0APhone%3A%0A')
+# Google Search Console ownership (cole@spanotechnologies.com, URL-prefix property). Keep it.
+GSC = '<meta name="google-site-verification" content="5Aa50GdVFVObh1zNSmoDVa_aalK_AM4D7m904ccV49w">'
 
 DATA = json.loads((SRC / 'data.json').read_text())
 esc = html.escape
@@ -101,10 +112,10 @@ FOOTER = f'''<footer>
   <div class="wrap">
     <div class="foot-word" aria-hidden="true">Spano Technologies</div>
     <div class="foot-grid">
-      <div>{MARK}<p>Used electronics, specializing in business laptops and memory. Tested by hand and sold on eBay since {DATA["SINCE"]}.</p></div>
-      <div><h4>Shop</h4><nav aria-label="Shop"><a href="{EBAY}" target="_blank" rel="noopener">eBay store {ARR}</a><a href="{FEEDBACK}" target="_blank" rel="noopener">Feedback {ARR}</a><a href="index.html#stock">In stock now</a></nav></div>
-      <div><h4>Info</h4><nav aria-label="Info"><a href="guide.html">Buying guide</a><a href="faq.html">FAQ</a><a href="pickup.html">Business pickup</a><a href="about.html">About</a><a href="roadmap.html">What's next</a></nav></div>
-      <div><h4>Contact</h4><nav aria-label="Contact"><a href="contact.html">Contact page</a><a href="mailto:info@spanotechnologies.com">info@spanotechnologies.com</a></nav></div>
+      <div>{MARK}<p>Used electronics, specializing in business laptops and memory. Tested by hand and sold on eBay since {DATA["SINCE"]}. Free business laptop pickup around Philadelphia.</p></div>
+      <div><h2>Shop</h2><nav aria-label="Shop"><a href="{EBAY}" target="_blank" rel="noopener">eBay store {ARR}</a><a href="{FEEDBACK}" target="_blank" rel="noopener">Feedback {ARR}</a><a href="index.html#stock">In stock now</a></nav></div>
+      <div><h2>Info</h2><nav aria-label="Info"><a href="guide.html">Buying guide</a><a href="faq.html">FAQ</a><a href="pickup.html">Business pickup</a><a href="about.html">About</a><a href="roadmap.html">What's next</a></nav></div>
+      <div><h2>Contact</h2><nav aria-label="Contact"><a href="contact.html">Contact page</a><a href="mailto:info@spanotechnologies.com">info@spanotechnologies.com</a></nav></div>
     </div>
     <div class="legal"><span>© {dt.date.today().year} Spano Technologies</span><span>Independent seller. eBay is a trademark of eBay Inc.</span></div>
   </div>
@@ -153,7 +164,7 @@ def page(name):
     if '{{STOCK}}' in raw:
         raw = raw.replace('{{STOCK}}', stock_block())
     raw = (raw.replace('{{QUOTES}}', quote_block()).replace('{{SOLD_LAPTOPS}}', sold_block('laptops')).replace('{{SOLD_MEMORY}}', sold_block('memory')).replace('{{SOLD_OTHER}}', sold_block('other'))
-              .replace('{{HERO_MARK}}', HERO_MARK).replace('{{EBAY}}', EBAY).replace('{{FEEDBACK_URL}}', FEEDBACK)
+              .replace('{{PICKUP_MAILTO}}', PICKUP_MAILTO).replace('{{HERO_MARK}}', HERO_MARK).replace('{{EBAY}}', EBAY).replace('{{FEEDBACK_URL}}', FEEDBACK)
               .replace(' ↗', ' ' + ARR)
               .replace('<section class="page-head">',
                        f'<section class="page-head"><div class="head-mark" aria-hidden="true">{MARK_LINES}</div>'))
@@ -180,8 +191,9 @@ def build():
         if f.name == '404.html':  # served from any path, so links must be root-absolute
             main = re.sub(r'(src|href)="(assets/|[a-z0-9]+\.html)', r'\1="/\2', main).replace('href="/index.html', 'href="/')
         slug = '' if f.name == 'index.html' else f.name[:-5]
-        extra = '' if f.name == '404.html' else f'<link rel="canonical" href="{SITE}/{slug}">\n'
-        extra += JSONLD + '\n' if f.name == 'index.html' else ''
+        extra = ('<meta name="robots" content="noindex">\n' if f.name == '404.html'
+                 else f'<link rel="canonical" href="{SITE}/{slug}">\n')
+        extra += {'index.html': JSONLD + '\n' + GSC + '\n', 'pickup.html': PICKUP_JSONLD + '\n'}.get(f.name, '')
         if f.name != '404.html':
             names.append(slug)
         full = f'''<!doctype html>
