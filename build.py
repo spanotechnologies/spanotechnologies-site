@@ -24,7 +24,8 @@ MIRROR = Path('/private/tmp/claude-501/-Users-cole-Desktop/7a9b7872-3cdf-4297-bb
 SITE = 'https://spanotechnologies.com'
 EBAY = 'https://www.ebay.com/str/spanotechnologies'
 FEEDBACK = 'https://www.ebay.com/fdbk/feedback_profile/spanotechnologies'
-NAV = [('guide.html', 'Guide', 'Buying guide'), ('faq.html', 'FAQ', 'FAQ'), ('about.html', 'About', 'About'),
+NAV = [('guide.html', 'Guide', 'Buying guide'), ('faq.html', 'FAQ', 'FAQ'),
+       ('pickup.html', 'Pickup', 'Business pickup'), ('about.html', 'About', 'About'),
        ('roadmap.html', "What's next", "What's next"), ('contact.html', 'Contact', 'Contact')]
 
 # The ST mark, traced from brand/mark-dark.png
@@ -102,7 +103,7 @@ FOOTER = f'''<footer>
     <div class="foot-grid">
       <div>{MARK}<p>Used electronics, specializing in business laptops and memory. Tested by hand and sold on eBay since {DATA["SINCE"]}.</p></div>
       <div><h4>Shop</h4><nav aria-label="Shop"><a href="{EBAY}" target="_blank" rel="noopener">eBay store {ARR}</a><a href="{FEEDBACK}" target="_blank" rel="noopener">Feedback {ARR}</a><a href="index.html#stock">In stock now</a></nav></div>
-      <div><h4>Info</h4><nav aria-label="Info"><a href="guide.html">Buying guide</a><a href="faq.html">FAQ</a><a href="about.html">About</a><a href="roadmap.html">What's next</a></nav></div>
+      <div><h4>Info</h4><nav aria-label="Info"><a href="guide.html">Buying guide</a><a href="faq.html">FAQ</a><a href="pickup.html">Business pickup</a><a href="about.html">About</a><a href="roadmap.html">What's next</a></nav></div>
       <div><h4>Contact</h4><nav aria-label="Contact"><a href="contact.html">Contact page</a><a href="mailto:info@spanotechnologies.com">info@spanotechnologies.com</a></nav></div>
     </div>
     <div class="legal"><span>© {dt.date.today().year} Spano Technologies</span><span>Independent seller. eBay is a trademark of eBay Inc.</span></div>
@@ -217,7 +218,7 @@ def build():
             (PREVIEW / 'index.html').write_text(
                 f'<title>{title}</title>\n<meta name="claude:viewport-fit-sides" content="cover">\n'
                 f'{FONTS}\n<style>\n{css}</style>\n{main}')
-    order = ['', 'guide', 'faq', 'about', 'roadmap', 'contact']
+    order = ['', 'guide', 'faq', 'pickup', 'about', 'roadmap', 'contact']
     urls = ''.join(f'  <url><loc>{SITE}/{p}</loc></url>\n' for p in order if p in names)
     (OUT / 'sitemap.xml').write_text(
         '<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n'
