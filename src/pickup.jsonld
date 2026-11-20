@@ -3,8 +3,8 @@
   "@type": "Service",
   "@id": "https://spanotechnologies.com/pickup#service",
   "name": "Business laptop and desktop pickup",
-  "serviceType": "Business computer pickup with on-site drive destruction",
-  "description": "Free pickup of retired business laptops and desktops for offices with three or more devices. Drives are destroyed on site, built-in storage is erased on site unless your policy requires physical destruction, and a certificate of data destruction listing every serial number follows within 10 business days. Newer machines can get a per-unit cash offer.",
+  "serviceType": "Business computer pickup with certified drive shredding",
+  "description": "Free pickup of retired business laptops and desktops for offices with three or more devices. Every drive is shredded by an R2v3-certified recycler, built-in storage is erased unless your policy requires shredding, and a certificate listing every drive by serial number with the recycler's shredding receipt follows within 15 business days. Newer machines can get a per-unit cash offer.",
   "url": "https://spanotechnologies.com/pickup",
   "provider": {
     "@type": "Organization",

@@ -24,9 +24,11 @@ MIRROR = Path('/private/tmp/claude-501/-Users-cole-Desktop/7a9b7872-3cdf-4297-bb
 SITE = 'https://spanotechnologies.com'
 EBAY = 'https://www.ebay.com/str/spanotechnologies'
 FEEDBACK = 'https://www.ebay.com/fdbk/feedback_profile/spanotechnologies'
-NAV = [('guide.html', 'Guide', 'Buying guide'), ('faq.html', 'FAQ', 'FAQ'),
-       ('pickup.html', 'Pickup', 'Business pickup'), ('about.html', 'About', 'About'),
-       ('roadmap.html', "What's next", "What's next"), ('contact.html', 'Contact', 'Contact')]
+# Business-first since 2026-11-19: the pickup service is the front door; the eBay store is one
+# Shop page with no live stock, prices or reviews (Cole: retail on the business site read as a
+# conflict, and the store carries employer-sourced stock). guide.html stays, linked from Shop.
+NAV = [('pickup.html', 'How it works', 'How pickup works'), ('about.html', 'About', 'About'),
+       ('shop.html', 'Shop', 'Shop'), ('contact.html', 'Contact', 'Contact')]
 
 # The ST mark, traced from brand/mark-dark.png
 S_PTS = '157,0 482,0 418,64 288,64 257,96 513,96 352,257 0,257 64,193 320,193 352,161 96,161 194,63'
@@ -93,7 +95,7 @@ def header(current):
     <a class="brand" href="index.html" aria-label="Spano Technologies home">{MARK}<span class="wordmark">Spano Technologies</span></a>
     <div class="bar-end">
       <nav class="menu" aria-label="Main">{links}</nav>
-      <a class="btn small" href="{EBAY}" target="_blank" rel="noopener">Shop {ARR}</a>
+      <a class="btn small" href="{PICKUP_MAILTO}">Request pickup {ARR}</a>
       <button class="burger" type="button" aria-expanded="false" aria-controls="sheet" aria-label="Menu"><span></span><span></span></button>
     </div>
   </div>
@@ -102,8 +104,8 @@ def header(current):
 <div class="sheet" id="sheet">
   <nav aria-label="Menu">{sheet}</nav>
   <div class="sheet-foot">
-    <a class="btn" href="{EBAY}" target="_blank" rel="noopener">Shop on eBay {ARR}</a>
-    <p class="proof"><span>{DATA["PCT"]}% positive</span><span>{DATA["SOLD"]}+ sold</span><span>Since {DATA["SINCE"]}</span></p>
+    <a class="btn" href="{PICKUP_MAILTO}">Request a pickup {ARR}</a>
+    <p class="proof"><span>Free for 3+ devices</span><span>Certified drive shredding</span><span>Philadelphia area</span></p>
   </div>
 </div>'''
 
@@ -112,9 +114,9 @@ FOOTER = f'''<footer>
   <div class="wrap">
     <div class="foot-word" aria-hidden="true">Spano Technologies</div>
     <div class="foot-grid">
-      <div>{MARK}<p>Used electronics, specializing in business laptops and memory. Tested by hand and sold on eBay since {DATA["SINCE"]}. Free business laptop pickup around Philadelphia.</p></div>
-      <div><h2>Shop</h2><nav aria-label="Shop"><a href="{EBAY}" target="_blank" rel="noopener">eBay store {ARR}</a><a href="{FEEDBACK}" target="_blank" rel="noopener">Feedback {ARR}</a><a href="index.html#stock">In stock now</a></nav></div>
-      <div><h2>Info</h2><nav aria-label="Info"><a href="guide.html">Buying guide</a><a href="faq.html">FAQ</a><a href="pickup.html">Business pickup</a><a href="about.html">About</a><a href="roadmap.html">What's next</a></nav></div>
+      <div>{MARK}<p>Free pickup of retired laptops and desktops for small offices around Philadelphia. Every drive shredded by a certified recycler, a certificate for every pickup, and recycling for the rest.</p></div>
+      <div><h2>Pickup</h2><nav aria-label="Pickup"><a href="pickup.html">How it works</a><a href="pickup.html#questions">Questions</a><a href="assets/sample-certificate.pdf" target="_blank" rel="noopener">Sample certificate {ARR}</a><a href="about.html">About</a></nav></div>
+      <div><h2>Shop</h2><nav aria-label="Shop"><a href="shop.html">Refurbished laptops</a><a href="guide.html">Buying guide</a><a href="{EBAY}" target="_blank" rel="noopener">eBay store {ARR}</a></nav></div>
       <div><h2>Contact</h2><nav aria-label="Contact"><a href="contact.html">Contact page</a><a href="mailto:info@spanotechnologies.com">info@spanotechnologies.com</a></nav></div>
     </div>
     <div class="legal"><span>© {dt.date.today().year} Spano Technologies</span><span>Independent seller. eBay is a trademark of eBay Inc.</span></div>
@@ -230,7 +232,7 @@ def build():
             (PREVIEW / 'index.html').write_text(
                 f'<title>{title}</title>\n<meta name="claude:viewport-fit-sides" content="cover">\n'
                 f'{FONTS}\n<style>\n{css}</style>\n{main}')
-    order = ['', 'guide', 'faq', 'pickup', 'about', 'roadmap', 'contact']
+    order = ['', 'pickup', 'about', 'shop', 'guide', 'contact']
     urls = ''.join(f'  <url><loc>{SITE}/{p}</loc></url>\n' for p in order if p in names)
     (OUT / 'sitemap.xml').write_text(
         '<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n'
