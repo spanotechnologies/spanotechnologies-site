@@ -119,7 +119,7 @@ FOOTER = f'''<footer>
       <div><h2>Shop</h2><nav aria-label="Shop"><a href="shop.html">Refurbished laptops</a><a href="guide.html">Buying guide</a><a href="{EBAY}" target="_blank" rel="noopener">eBay store {ARR}</a></nav></div>
       <div><h2>Contact</h2><nav aria-label="Contact"><a href="contact.html">Contact page</a><a href="mailto:info@spanotechnologies.com">info@spanotechnologies.com</a></nav></div>
     </div>
-    <div class="legal"><span>© {dt.date.today().year} Spano Technologies</span><span>Independent seller. eBay is a trademark of eBay Inc.</span></div>
+    <div class="legal"><span>© {dt.date.today().year} Spano Technologies LLC</span><span>Independent seller. eBay is a trademark of eBay Inc.</span></div>
   </div>
 </footer>'''
 
