@@ -66,7 +66,7 @@ FONTS = ('<link rel="preconnect" href="https://fonts.googleapis.com">\n'
          '&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@500&display=swap">')
 JSONLD = ('<script type="application/ld+json">{"@context":"https://schema.org","@type":"Organization",'
           '"@id":"https://spanotechnologies.com/#organization",'
-          '"name":"Spano Technologies","url":"https://spanotechnologies.com/",'
+          '"name":"Spano Technologies","legalName":"Spano Technologies LLC","url":"https://spanotechnologies.com/",'
           '"logo":"https://spanotechnologies.com/assets/apple-touch-icon.png",'
           '"email":"info@spanotechnologies.com","sameAs":["https://www.ebay.com/str/spanotechnologies"]}</script>')
 
