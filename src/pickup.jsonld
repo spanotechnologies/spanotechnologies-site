@@ -11,7 +11,8 @@
     "@id": "https://spanotechnologies.com/#organization",
     "name": "Spano Technologies",
     "url": "https://spanotechnologies.com/",
-    "email": "info@spanotechnologies.com"
+    "email": "info@spanotechnologies.com",
+    "telephone": "+1-484-957-1712"
   },
   "audience": {
     "@type": "BusinessAudience",

@@ -68,7 +68,7 @@ JSONLD = ('<script type="application/ld+json">{"@context":"https://schema.org","
           '"@id":"https://spanotechnologies.com/#organization",'
           '"name":"Spano Technologies","legalName":"Spano Technologies LLC","url":"https://spanotechnologies.com/",'
           '"logo":"https://spanotechnologies.com/assets/apple-touch-icon.png",'
-          '"email":"info@spanotechnologies.com","sameAs":["https://www.ebay.com/str/spanotechnologies"]}</script>')
+          '"email":"info@spanotechnologies.com","telephone":"+1-484-957-1712","sameAs":["https://www.ebay.com/str/spanotechnologies"]}</script>')
 
 PICKUP_JSONLD = ('<script type="application/ld+json">'
                  + json.dumps(json.loads((SRC / 'pickup.jsonld').read_text()), separators=(',', ':'))
@@ -117,7 +117,7 @@ FOOTER = f'''<footer>
       <div>{MARK}<p>Free pickup of retired laptops and desktops for small offices around Philadelphia. Every drive shredded by a certified recycler, a certificate for every pickup, and recycling for the rest.</p></div>
       <div><h2>Pickup</h2><nav aria-label="Pickup"><a href="pickup.html">How it works</a><a href="pickup.html#questions">Questions</a><a href="assets/sample-certificate.pdf" target="_blank" rel="noopener">Sample certificate {ARR}</a><a href="about.html">About</a></nav></div>
       <div><h2>Shop</h2><nav aria-label="Shop"><a href="shop.html">Refurbished laptops</a><a href="guide.html">Buying guide</a><a href="{EBAY}" target="_blank" rel="noopener">eBay store {ARR}</a></nav></div>
-      <div><h2>Contact</h2><nav aria-label="Contact"><a href="contact.html">Contact page</a><a href="mailto:info@spanotechnologies.com">info@spanotechnologies.com</a></nav></div>
+      <div><h2>Contact</h2><nav aria-label="Contact"><a href="contact.html">Contact page</a><a href="mailto:info@spanotechnologies.com">info@spanotechnologies.com</a><a href="tel:+14849571712">(484) 957-1712</a></nav></div>
     </div>
     <div class="legal"><span>© {dt.date.today().year} Spano Technologies LLC</span><span>Independent seller. eBay is a trademark of eBay Inc.</span></div>
   </div>
