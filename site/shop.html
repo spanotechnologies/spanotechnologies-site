@@ -344,6 +344,8 @@
   .sent { display: grid; gap: 12px; }
   .sent[hidden], .pform[hidden] { display: none; }
   @media (max-width: 560px) { .pform .two { grid-template-columns: minmax(0, 1fr); } }
+  .page-head.compact { padding-block: clamp(36px, 5vw, 60px) 32px; }
+  .page-head.compact + .wrap .contact-grid { padding-top: 32px; }
   .sent:focus { outline: none; }
 
   /* footer */

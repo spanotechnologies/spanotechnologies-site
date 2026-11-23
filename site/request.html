@@ -344,6 +344,8 @@
   .sent { display: grid; gap: 12px; }
   .sent[hidden], .pform[hidden] { display: none; }
   @media (max-width: 560px) { .pform .two { grid-template-columns: minmax(0, 1fr); } }
+  .page-head.compact { padding-block: clamp(36px, 5vw, 60px) 32px; }
+  .page-head.compact + .wrap .contact-grid { padding-top: 32px; }
   .sent:focus { outline: none; }
 
   /* footer */
@@ -438,7 +440,7 @@
   </div>
 </div>
 <main id="main">
-<section class="page-head"><div class="head-mark" aria-hidden="true"><svg viewBox="0 0 856 258" aria-hidden="true" focusable="false"><polygon points="157,0 482,0 418,64 288,64 257,96 513,96 352,257 0,257 64,193 320,193 352,161 96,161 194,63" pathLength="1"/><polygon points="531,0 855,0 791,64 693,64 500,257 405,257 597,64 467,64" pathLength="1"/></svg></div>
+<section class="page-head compact">
   <div class="wrap" style="display:grid;gap:16px">
     <p class="eyebrow">Request a pickup</p>
     <h1>Tell us what you have.</h1>
@@ -478,31 +480,15 @@
           </label>
           <p class="note" id="few" hidden>Free pickup starts at three devices. Send it anyway if more are coming, and we'll plan around that.</p>
           <label><span class="lab">Makes and models <span class="opt">rough is fine</span></span>
-            <textarea name="Makes and models" rows="3" placeholder="e.g. 6 Dell Latitude 5420s, 2 MacBook Airs, 1 OptiPlex"></textarea>
+            <textarea name="Makes and models" rows="3" required placeholder="e.g. 6 Dell Latitude 5420s, 2 MacBook Airs, 1 OptiPlex"></textarea>
           </label>
           <div class="q">
-            <p>Any MacBooks or iMacs?</p>
+            <p>Is this a medical, dental or other healthcare office?</p>
             <div class="chips">
-              <label><input type="radio" name="Macs" value="Yes">Yes</label>
-              <label><input type="radio" name="Macs" value="No">No</label>
-              <label><input type="radio" name="Macs" value="Not sure">Not sure</label>
+              <label><input type="radio" name="Healthcare office" value="Yes">Yes</label>
+              <label><input type="radio" name="Healthcare office" value="No">No</label>
             </div>
-          </div>
-          <div class="q">
-            <p>Enrolled in device management (Intune, Autopilot, Apple Business Manager, Absolute) or BIOS passwords?</p>
-            <div class="chips">
-              <label><input type="radio" name="Managed or locked" value="Yes">Yes</label>
-              <label><input type="radio" name="Managed or locked" value="No">No</label>
-              <label><input type="radio" name="Managed or locked" value="Not sure">Not sure</label>
-            </div>
-          </div>
-          <div class="q">
-            <p>Do any of them hold patient records?</p>
-            <div class="chips">
-              <label><input type="radio" name="Patient records" value="Yes">Yes</label>
-              <label><input type="radio" name="Patient records" value="No">No</label>
-            </div>
-            <p class="note" id="phi" hidden>We can't take equipment holding patient records yet: it needs a different agreement. If only some of the machines hold them, say which in the notes below.</p>
+            <p class="note" id="phi" hidden>We can't take equipment from healthcare offices yet: machines that may hold patient records need a different agreement, and we don't offer one today.</p>
           </div>
         </fieldset>
 
@@ -562,7 +548,7 @@
     var btn = document.getElementById('send');
     var show = function (id, on) { document.getElementById(id).hidden = !on; };
     f.Devices.addEventListener('change', function () { show('few', f.Devices.value === 'Fewer than 3'); });
-    Array.prototype.forEach.call(f.querySelectorAll('input[name="Patient records"]'), function (r) {
+    Array.prototype.forEach.call(f.querySelectorAll('input[name="Healthcare office"]'), function (r) {
       r.addEventListener('change', function () { show('phi', r.checked && r.value === 'Yes'); });
     });
     // Everything the visitor typed, as plain text, for the email fallback.
