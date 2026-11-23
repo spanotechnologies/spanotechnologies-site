@@ -73,7 +73,9 @@ JSONLD = ('<script type="application/ld+json">{"@context":"https://schema.org","
 PICKUP_JSONLD = ('<script type="application/ld+json">'
                  + json.dumps(json.loads((SRC / 'pickup.jsonld').read_text()), separators=(',', ':'))
                  + '</script>')
-# One prefilled pickup-request email, used by every "Request a pickup" button.
+# Every "Request a pickup" button goes to the form page (2026-11-23). PICKUP_MAILTO stays as the
+# no-form fallback for anyone who'd rather email.
+PICKUP_URL = 'request.html'
 PICKUP_MAILTO = ('mailto:info@spanotechnologies.com?subject=Business%20pickup%20request&amp;body=Business%20name%3A%0A'
                  'Address%3A%0AHow%20many%20devices%3A%0AMakes%20and%20models%20(rough%20is%20fine)%3A%0A'
                  'Any%20MacBooks%3F%3A%0ABest%20days%20and%20times%3A%0APhone%3A%0A')
@@ -95,7 +97,7 @@ def header(current):
     <a class="brand" href="index.html" aria-label="Spano Technologies home">{MARK}<span class="wordmark">Spano Technologies</span></a>
     <div class="bar-end">
       <nav class="menu" aria-label="Main">{links}</nav>
-      <a class="btn small" href="{PICKUP_MAILTO}">Request pickup {ARR}</a>
+      <a class="btn small" href="{PICKUP_URL}">Request pickup {ARR}</a>
       <button class="burger" type="button" aria-expanded="false" aria-controls="sheet" aria-label="Menu"><span></span><span></span></button>
     </div>
   </div>
@@ -104,7 +106,7 @@ def header(current):
 <div class="sheet" id="sheet">
   <nav aria-label="Menu">{sheet}</nav>
   <div class="sheet-foot">
-    <a class="btn" href="{PICKUP_MAILTO}">Request a pickup {ARR}</a>
+    <a class="btn" href="{PICKUP_URL}">Request a pickup {ARR}</a>
     <p class="proof"><span>Free for 3+ devices</span><span>Certified drive shredding</span><span>Philadelphia area</span></p>
   </div>
 </div>'''
@@ -166,7 +168,7 @@ def page(name):
     if '{{STOCK}}' in raw:
         raw = raw.replace('{{STOCK}}', stock_block())
     raw = (raw.replace('{{QUOTES}}', quote_block()).replace('{{SOLD_LAPTOPS}}', sold_block('laptops')).replace('{{SOLD_MEMORY}}', sold_block('memory')).replace('{{SOLD_OTHER}}', sold_block('other'))
-              .replace('{{PICKUP_MAILTO}}', PICKUP_MAILTO).replace('{{HERO_MARK}}', HERO_MARK).replace('{{EBAY}}', EBAY).replace('{{FEEDBACK_URL}}', FEEDBACK)
+              .replace('{{PICKUP_URL}}', PICKUP_URL).replace('{{PICKUP_MAILTO}}', PICKUP_MAILTO).replace('{{HERO_MARK}}', HERO_MARK).replace('{{EBAY}}', EBAY).replace('{{FEEDBACK_URL}}', FEEDBACK)
               .replace(' ↗', ' ' + ARR)
               .replace('<section class="page-head">',
                        f'<section class="page-head"><div class="head-mark" aria-hidden="true">{MARK_LINES}</div>'))
@@ -193,7 +195,7 @@ def build():
         if f.name == '404.html':  # served from any path, so links must be root-absolute
             main = re.sub(r'(src|href)="(assets/|[a-z0-9]+\.html)', r'\1="/\2', main).replace('href="/index.html', 'href="/')
         slug = '' if f.name == 'index.html' else f.name[:-5]
-        extra = ('<meta name="robots" content="noindex">\n' if f.name == '404.html'
+        extra = ('<meta name="robots" content="noindex">\n' if f.name in ('404.html', 'thanks.html')
                  else f'<link rel="canonical" href="{SITE}/{slug}">\n')
         extra += {'index.html': JSONLD + '\n' + GSC + '\n', 'pickup.html': PICKUP_JSONLD + '\n'}.get(f.name, '')
         if f.name != '404.html':
@@ -232,7 +234,7 @@ def build():
             (PREVIEW / 'index.html').write_text(
                 f'<title>{title}</title>\n<meta name="claude:viewport-fit-sides" content="cover">\n'
                 f'{FONTS}\n<style>\n{css}</style>\n{main}')
-    order = ['', 'pickup', 'about', 'shop', 'guide', 'contact']
+    order = ['', 'pickup', 'request', 'about', 'shop', 'guide', 'contact']   # thanks: noindex, left out
     urls = ''.join(f'  <url><loc>{SITE}/{p}</loc></url>\n' for p in order if p in names)
     (OUT / 'sitemap.xml').write_text(
         '<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n'

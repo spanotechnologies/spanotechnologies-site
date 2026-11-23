@@ -313,6 +313,40 @@
   .plain { margin: 0; padding-left: 1.1em; display: grid; gap: 8px; color: var(--muted); }
   .why { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 20px; }
 
+  /* pickup request form */
+  .pform { display: grid; gap: 26px; }
+  .pform fieldset { border: 0; margin: 0; padding: 0; display: grid; gap: 16px; min-width: 0; }
+  .pform legend { padding: 0 0 4px; font: 500 0.74rem/1.3 var(--font-mono); letter-spacing: 0.18em; text-transform: uppercase; color: var(--muted); }
+  .pform legend::before { content: "/ "; color: var(--fg); }
+  .pform .two { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: 16px; }
+  .pform label { display: grid; gap: 7px; font-size: 0.95rem; min-width: 0; }
+  .pform .opt { color: var(--dim); font-size: 0.82rem; }
+  .pform input:not([type=radio]):not([type=checkbox]), .pform select, .pform textarea {
+    width: 100%; box-sizing: border-box; background: var(--bg); color: var(--fg); border: 0; box-shadow: inset 0 0 0 1px var(--line);
+    padding: 12px 13px; font: 400 1rem/1.4 var(--font-body); border-radius: 0; transition: box-shadow .2s; }
+  .pform select { appearance: none; background-image: linear-gradient(45deg, transparent 50%, var(--muted) 50%), linear-gradient(135deg, var(--muted) 50%, transparent 50%);
+    background-position: calc(100% - 18px) 52%, calc(100% - 13px) 52%; background-size: 5px 5px; background-repeat: no-repeat; padding-right: 36px; }
+  .pform textarea { resize: vertical; min-height: 84px; }
+  .pform input:focus, .pform select:focus, .pform textarea:focus { outline: none; box-shadow: inset 0 0 0 1px var(--fg); }
+  .pform ::placeholder { color: var(--dim); }
+  .pform .q { display: grid; gap: 9px; }
+  .pform .q > p { margin: 0; font-size: 0.95rem; }
+  .chips { display: flex; flex-wrap: wrap; gap: 8px; }
+  .chips label { display: inline-flex; grid-template-columns: none; align-items: center; gap: 0; cursor: pointer; }
+  .chips input { position: absolute; opacity: 0; width: 1px; height: 1px; }
+  .chips label { padding: 10px 14px; box-shadow: inset 0 0 0 1px var(--line); color: var(--muted); font-size: 0.9rem; transition: box-shadow .2s, color .2s, background .2s; }
+  .chips label:hover { color: var(--fg); box-shadow: inset 0 0 0 1px var(--muted); }
+  .chips label:has(input:checked) { background: var(--fg); color: var(--bg); box-shadow: none; }
+  .chips label:has(input:focus-visible) { outline: 2px solid var(--fg); outline-offset: 2px; }
+  .pform .note { margin: 0; padding: 10px 12px; font-size: 0.9rem; color: var(--fg); background: var(--raise); }
+  .pform .note.err { box-shadow: inset 3px 0 0 #e5675f; }
+  .pform .hp { position: absolute; left: -9999px; }
+  .small { font-size: 0.85rem; }
+  .sent { display: grid; gap: 12px; }
+  .sent[hidden], .pform[hidden] { display: none; }
+  @media (max-width: 560px) { .pform .two { grid-template-columns: minmax(0, 1fr); } }
+  .sent:focus { outline: none; }
+
   /* footer */
   footer { overflow: hidden; }
   .foot-word { font: 600 clamp(1.6rem, 7.4vw, 7.6rem)/1 var(--font-display); letter-spacing: 0.04em; text-transform: uppercase; white-space: nowrap; color: transparent; -webkit-text-stroke: 1px #3a3a40; padding-block: clamp(40px, 6vw, 80px) clamp(20px, 3vw, 40px); user-select: none; }
@@ -391,7 +425,7 @@
     <a class="brand" href="index.html" aria-label="Spano Technologies home"><svg class="mark" viewBox="0 0 856 258" aria-hidden="true" focusable="false"><polygon points="157,0 482,0 418,64 288,64 257,96 513,96 352,257 0,257 64,193 320,193 352,161 96,161 194,63"/><polygon points="531,0 855,0 791,64 693,64 500,257 405,257 597,64 467,64"/></svg><span class="wordmark">Spano Technologies</span></a>
     <div class="bar-end">
       <nav class="menu" aria-label="Main"><a href="pickup.html" aria-current="page">How it works</a><a href="about.html">About</a><a href="shop.html">Shop</a><a href="contact.html">Contact</a></nav>
-      <a class="btn small" href="mailto:info@spanotechnologies.com?subject=Business%20pickup%20request&amp;body=Business%20name%3A%0AAddress%3A%0AHow%20many%20devices%3A%0AMakes%20and%20models%20(rough%20is%20fine)%3A%0AAny%20MacBooks%3F%3A%0ABest%20days%20and%20times%3A%0APhone%3A%0A">Request pickup <svg class="arr" viewBox="0 0 12 12" aria-hidden="true" focusable="false"><path d="M2 10 10 2M3.5 2H10v6.5" fill="none" stroke="currentColor" stroke-width="1.7"/></svg></a>
+      <a class="btn small" href="request.html">Request pickup <svg class="arr" viewBox="0 0 12 12" aria-hidden="true" focusable="false"><path d="M2 10 10 2M3.5 2H10v6.5" fill="none" stroke="currentColor" stroke-width="1.7"/></svg></a>
       <button class="burger" type="button" aria-expanded="false" aria-controls="sheet" aria-label="Menu"><span></span><span></span></button>
     </div>
   </div>
@@ -400,7 +434,7 @@
 <div class="sheet" id="sheet">
   <nav aria-label="Menu"><a href="index.html">Home<small>01</small></a><a href="pickup.html" aria-current="page">How pickup works<small>02</small></a><a href="about.html">About<small>03</small></a><a href="shop.html">Shop<small>04</small></a><a href="contact.html">Contact<small>05</small></a></nav>
   <div class="sheet-foot">
-    <a class="btn" href="mailto:info@spanotechnologies.com?subject=Business%20pickup%20request&amp;body=Business%20name%3A%0AAddress%3A%0AHow%20many%20devices%3A%0AMakes%20and%20models%20(rough%20is%20fine)%3A%0AAny%20MacBooks%3F%3A%0ABest%20days%20and%20times%3A%0APhone%3A%0A">Request a pickup <svg class="arr" viewBox="0 0 12 12" aria-hidden="true" focusable="false"><path d="M2 10 10 2M3.5 2H10v6.5" fill="none" stroke="currentColor" stroke-width="1.7"/></svg></a>
+    <a class="btn" href="request.html">Request a pickup <svg class="arr" viewBox="0 0 12 12" aria-hidden="true" focusable="false"><path d="M2 10 10 2M3.5 2H10v6.5" fill="none" stroke="currentColor" stroke-width="1.7"/></svg></a>
     <p class="proof"><span>Free for 3+ devices</span><span>Certified drive shredding</span><span>Philadelphia area</span></p>
   </div>
 </div>
@@ -410,7 +444,7 @@
     <p class="eyebrow">For businesses</p>
     <h1>Retiring company laptops?</h1>
     <p class="lede">We pick them up for free, have every drive shredded by a certified recycler, and send a certificate that lists each one by serial number. Newer machines can get a cash offer.</p>
-    <div class="actions"><a class="btn" href="mailto:info@spanotechnologies.com?subject=Business%20pickup%20request&amp;body=Business%20name%3A%0AAddress%3A%0AHow%20many%20devices%3A%0AMakes%20and%20models%20(rough%20is%20fine)%3A%0AAny%20MacBooks%3F%3A%0ABest%20days%20and%20times%3A%0APhone%3A%0A">Request a pickup <svg class="arr" viewBox="0 0 12 12" aria-hidden="true" focusable="false"><path d="M2 10 10 2M3.5 2H10v6.5" fill="none" stroke="currentColor" stroke-width="1.7"/></svg></a><a class="btn ghost" href="assets/sample-certificate.pdf" target="_blank" rel="noopener">See a sample certificate <svg class="arr" viewBox="0 0 12 12" aria-hidden="true" focusable="false"><path d="M2 10 10 2M3.5 2H10v6.5" fill="none" stroke="currentColor" stroke-width="1.7"/></svg></a></div>
+    <div class="actions"><a class="btn" href="request.html">Request a pickup <svg class="arr" viewBox="0 0 12 12" aria-hidden="true" focusable="false"><path d="M2 10 10 2M3.5 2H10v6.5" fill="none" stroke="currentColor" stroke-width="1.7"/></svg></a><a class="btn ghost" href="assets/sample-certificate.pdf" target="_blank" rel="noopener">See a sample certificate <svg class="arr" viewBox="0 0 12 12" aria-hidden="true" focusable="false"><path d="M2 10 10 2M3.5 2H10v6.5" fill="none" stroke="currentColor" stroke-width="1.7"/></svg></a></div>
   </div>
 </section>
 
@@ -421,7 +455,7 @@
       <h2>Three steps, start to finish.</h2>
     </div>
     <ol class="steps">
-      <li><h3>Tell us what you have</h3><p class="muted">Email a rough list: how many, what make and model, and about how old. We reply with a pickup time and, for newer machines, a per-unit offer in writing before we come.</p></li>
+      <li><h3>Tell us what you have</h3><p class="muted">Send a rough list: how many, what make and model, and about how old. We reply with a pickup time and, for newer machines, a per-unit offer in writing before we come.</p></li>
       <li><h3>We pick up</h3><p class="muted">We log each machine by serial number on a signed transfer form and take everything with us, so the visit is quick. Drives are removed afterward and kept locked until an R2v3-certified recycler shreds them. Built-in storage, like a MacBook's, is erased with the maker's own erase function, or shredded if your policy requires it.</p></li>
       <li><h3>You get the paperwork</h3><p class="muted">A signed transfer of ownership at pickup, then a certificate of data destruction listing every drive by serial number, with the recycler's shredding receipt, within 15 business days. <a href="assets/sample-certificate.pdf" target="_blank" rel="noopener">See a sample</a>.</p></li>
     </ol>
@@ -478,7 +512,7 @@
       <h2>Tell us what you have.</h2>
       <p class="muted">A rough count and the makes and models are enough to start. Email <a href="mailto:info@spanotechnologies.com">info@spanotechnologies.com</a> or call <a href="tel:+14849571712">(484) 957-1712</a>. We reply within one business day.</p>
     </div>
-    <a class="btn" href="mailto:info@spanotechnologies.com?subject=Business%20pickup%20request&amp;body=Business%20name%3A%0AAddress%3A%0AHow%20many%20devices%3A%0AMakes%20and%20models%20(rough%20is%20fine)%3A%0AAny%20MacBooks%3F%3A%0ABest%20days%20and%20times%3A%0APhone%3A%0A">Request a pickup <svg class="arr" viewBox="0 0 12 12" aria-hidden="true" focusable="false"><path d="M2 10 10 2M3.5 2H10v6.5" fill="none" stroke="currentColor" stroke-width="1.7"/></svg></a>
+    <a class="btn" href="request.html">Request a pickup <svg class="arr" viewBox="0 0 12 12" aria-hidden="true" focusable="false"><path d="M2 10 10 2M3.5 2H10v6.5" fill="none" stroke="currentColor" stroke-width="1.7"/></svg></a>
   </div>
 </section>
 </main>

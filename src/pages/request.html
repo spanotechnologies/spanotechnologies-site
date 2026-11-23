@@ -1,0 +1,180 @@
+<!-- title: Request a pickup · Spano Technologies -->
+<!-- description: Request a free pickup of retired business laptops and desktops in Philadelphia, the Main Line and Delaware County. Every drive shredded by a certified recycler, with a certificate. -->
+<section class="page-head">
+  <div class="wrap" style="display:grid;gap:16px">
+    <p class="eyebrow">Request a pickup</p>
+    <h1>Tell us what you have.</h1>
+    <p class="lede">About two minutes. We reply within one business day with a pickup time and, for newer machines, a written offer.</p>
+  </div>
+</section>
+
+<div class="wrap">
+  <div class="contact-grid">
+    <section class="panel">
+      <form class="pform" id="pickup-form" action="https://api.web3forms.com/submit" method="POST" novalidate>
+        <input type="hidden" name="access_key" value="{{WEB3FORMS_KEY}}">
+        <input type="hidden" name="subject" value="Pickup request">
+        <input type="hidden" name="from_name" value="spanotechnologies.com pickup form">
+        <input type="hidden" name="redirect" value="https://spanotechnologies.com/thanks">
+        <input type="checkbox" name="botcheck" class="hp" tabindex="-1" autocomplete="off" aria-hidden="true">
+
+        <fieldset>
+          <legend>Your office</legend>
+          <div class="two">
+            <label><span class="lab">Business name</span><input name="Business" autocomplete="organization" required></label>
+            <label><span class="lab">Your name</span><input name="name" autocomplete="name" required></label>
+          </div>
+          <div class="two">
+            <label><span class="lab">Email</span><input type="email" name="email" autocomplete="email" required></label>
+            <label><span class="lab">Phone <span class="opt">optional</span></span><input type="tel" name="Phone" autocomplete="tel"></label>
+          </div>
+          <label><span class="lab">Pickup address <span class="opt">or just the town for now</span></span><input name="Address" autocomplete="street-address" required></label>
+        </fieldset>
+
+        <fieldset>
+          <legend>The machines</legend>
+          <label><span class="lab">How many laptops and desktops?</span><select name="Devices" required>
+              <option value="">Choose</option>
+              <option>3 to 5</option><option>6 to 10</option><option>11 to 20</option><option>More than 20</option>
+              <option>Fewer than 3</option><option>Not sure yet</option>
+            </select>
+          </label>
+          <p class="note" id="few" hidden>Free pickup starts at three devices. Send it anyway if more are coming, and we'll plan around that.</p>
+          <label><span class="lab">Makes and models <span class="opt">rough is fine</span></span>
+            <textarea name="Makes and models" rows="3" placeholder="e.g. 6 Dell Latitude 5420s, 2 MacBook Airs, 1 OptiPlex"></textarea>
+          </label>
+          <div class="q">
+            <p>Any MacBooks or iMacs?</p>
+            <div class="chips">
+              <label><input type="radio" name="Macs" value="Yes">Yes</label>
+              <label><input type="radio" name="Macs" value="No">No</label>
+              <label><input type="radio" name="Macs" value="Not sure">Not sure</label>
+            </div>
+          </div>
+          <div class="q">
+            <p>Enrolled in device management (Intune, Autopilot, Apple Business Manager, Absolute) or BIOS passwords?</p>
+            <div class="chips">
+              <label><input type="radio" name="Managed or locked" value="Yes">Yes</label>
+              <label><input type="radio" name="Managed or locked" value="No">No</label>
+              <label><input type="radio" name="Managed or locked" value="Not sure">Not sure</label>
+            </div>
+          </div>
+          <div class="q">
+            <p>Do any of them hold patient records?</p>
+            <div class="chips">
+              <label><input type="radio" name="Patient records" value="Yes">Yes</label>
+              <label><input type="radio" name="Patient records" value="No">No</label>
+            </div>
+            <p class="note" id="phi" hidden>We can't take equipment holding patient records yet: it needs a different agreement. If only some of the machines hold them, say which in the notes below.</p>
+          </div>
+        </fieldset>
+
+        <fieldset>
+          <legend>Timing</legend>
+          <div class="q">
+            <p>Best times for a pickup <span class="opt">choose any</span></p>
+            <div class="chips">
+              <label><input type="checkbox" name="Best times" value="Early morning">Early morning</label>
+              <label><input type="checkbox" name="Best times" value="Late afternoon">Late afternoon</label>
+              <label><input type="checkbox" name="Best times" value="Saturday">Saturday</label>
+            </div>
+          </div>
+          <label><span class="lab">Anything else <span class="opt">optional</span></span><textarea name="Notes" rows="3" placeholder="Deadline, a move date, a loading dock, chargers…"></textarea></label>
+          <label><span class="lab">How did you hear about us? <span class="opt">optional</span></span>
+            <select name="Heard about us">
+              <option value="">Choose</option>
+              <option>Google</option><option>A referral</option><option>Our mover, shredder or building</option>
+              <option>An email from us</option><option>Other</option>
+            </select>
+          </label>
+        </fieldset>
+
+        <p class="note err" id="form-err" role="alert" hidden></p>
+        <div class="actions">
+          <button class="btn" type="submit" id="send">Send request ↗</button>
+          <span class="muted small">We use this only to reply about your pickup.</span>
+        </div>
+      </form>
+      <div class="sent" id="sent" hidden tabindex="-1">
+        <p class="eyebrow">Sent</p>
+        <h2>Thanks. We have it.</h2>
+        <p class="muted">We reply within one business day with a pickup time and, for newer machines, a written offer. To add anything in the meantime, email <a href="mailto:info@spanotechnologies.com">info@spanotechnologies.com</a> or call <a href="tel:+14849571712">(484) 957-1712</a>.</p>
+      </div>
+    </section>
+
+    <aside class="panel">
+      <p class="eyebrow">What happens next</p>
+      <ol class="plain">
+        <li>We reply within one business day, and send a written per-unit offer for any newer machines.</li>
+        <li>We pick up at a time that suits you, log every machine by serial number, and you sign a transfer of ownership.</li>
+        <li>Every drive is shredded by Elemental Inc., an R2v3-certified recycler in Philadelphia, and you get a certificate within 15 business days. <a href="assets/sample-certificate.pdf" target="_blank" rel="noopener">See a sample</a>.</li>
+      </ol>
+      <p class="eyebrow" style="margin-top:14px">Rather email or call?</p>
+      <p class="muted"><a href="mailto:info@spanotechnologies.com">info@spanotechnologies.com</a><br><a href="tel:+14849571712">(484) 957-1712</a></p>
+      <p class="muted small">Free for three or more laptops or desktops in Philadelphia, the Main Line and Delaware County. Not for medical or dental offices yet.</p>
+    </aside>
+  </div>
+</div>
+
+<script>
+  (function () {
+    var f = document.getElementById('pickup-form');
+    if (!f) return;
+    var key = f.access_key.value;
+    var err = document.getElementById('form-err');
+    var btn = document.getElementById('send');
+    var show = function (id, on) { document.getElementById(id).hidden = !on; };
+    f.Devices.addEventListener('change', function () { show('few', f.Devices.value === 'Fewer than 3'); });
+    Array.prototype.forEach.call(f.querySelectorAll('input[name="Patient records"]'), function (r) {
+      r.addEventListener('change', function () { show('phi', r.checked && r.value === 'Yes'); });
+    });
+    // Everything the visitor typed, as plain text, for the email fallback.
+    var skip = { access_key: 1, subject: 1, from_name: 1, redirect: 1, botcheck: 1 };
+    function asText() {
+      var m = {}, order = [];
+      new FormData(f).forEach(function (v, k) {
+        if (skip[k]) return;
+        if (!m[k]) { m[k] = []; order.push(k); }
+        if (v) m[k].push(v);
+      });
+      return order.map(function (k) { return k.charAt(0).toUpperCase() + k.slice(1) + ': ' + m[k].join(', '); }).join('\n');
+    }
+    function fallback() {
+      location.href = 'mailto:info@spanotechnologies.com?subject=' + encodeURIComponent('Pickup request: ' + f.Business.value) +
+        '&body=' + encodeURIComponent(asText());
+    }
+    f.addEventListener('submit', function (e) {
+      e.preventDefault();
+      err.hidden = true;
+      if (!f.checkValidity()) {
+        var bad = f.querySelector('input:invalid, select:invalid, textarea:invalid');   // not the fieldset
+        err.textContent = 'Please fill in ' + (bad.closest('label') ? bad.closest('label').querySelector('.lab').firstChild.textContent.trim().toLowerCase() : 'the required fields') + '.';
+        err.hidden = false;
+        bad.focus();
+        return;
+      }
+      if (!key) { fallback(); return; }   // form service not connected yet: open an email instead
+      f.subject.value = 'Pickup request: ' + f.Business.value + ' (' + f.Devices.value + ')';
+      var data = new FormData(f);
+      data.set('Best times', Array.prototype.filter.call(f.querySelectorAll('input[name="Best times"]'),
+        function (x) { return x.checked; }).map(function (x) { return x.value; }).join(', '));
+      data.delete('redirect');
+      btn.disabled = true;
+      btn.textContent = 'Sending…';
+      fetch(f.action, { method: 'POST', body: data, headers: { Accept: 'application/json' } })
+        .then(function (r) { return r.json(); })
+        .then(function (j) {
+          if (!j.success) throw new Error(j.message || 'failed');
+          f.hidden = true;
+          show('sent', true);
+          document.getElementById('sent').focus();
+        })
+        .catch(function () {
+          btn.disabled = false;
+          btn.textContent = 'Send request';
+          err.innerHTML = 'That didn’t go through. Please email <a href="mailto:info@spanotechnologies.com">info@spanotechnologies.com</a> or call (484) 957-1712.';
+          err.hidden = false;
+        });
+    });
+  })();
+</script>
