@@ -4,12 +4,12 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>About · Spano Technologies</title>
-<meta name="description" content="Spano Technologies is a small Philadelphia business that picks up retired business computers, has the drives certifiably shredded, and refurbishes what can be reused.">
+<meta name="description" content="Spano Technologies is a small Philadelphia company, run by Cole Spano, that picks up and recycles retired business computers, has every drive shredded, and refurbishes what can be reused.">
 <link rel="icon" type="image/svg+xml" href="/assets/favicon.svg">
 <link rel="icon" type="image/png" href="/assets/favicon.png">
 <link rel="apple-touch-icon" href="/assets/apple-touch-icon.png">
 <meta property="og:title" content="About · Spano Technologies">
-<meta property="og:description" content="Spano Technologies is a small Philadelphia business that picks up retired business computers, has the drives certifiably shredded, and refurbishes what can be reused.">
+<meta property="og:description" content="Spano Technologies is a small Philadelphia company, run by Cole Spano, that picks up and recycles retired business computers, has every drive shredded, and refurbishes what can be reused.">
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="Spano Technologies">
 <meta property="og:url" content="https://spanotechnologies.com/about">
@@ -34,7 +34,7 @@
     --surface: #17171a;
     --raise: #1e1e22;
     --fg: #f2f2f0;
-    --muted: #9a9aa1;
+    --muted: #a9a9b0;   /* was #9a9aa1: a step brighter for readability (2026-11-24) */
     --dim: #86868e;
     --line: #29292d;
     --ok: #5ad48f;
@@ -73,7 +73,7 @@
   h2 { font-size: clamp(1.7rem, 1.1rem + 2.4vw, 2.9rem); line-height: 1.04; text-transform: uppercase; letter-spacing: -0.005em; }
   h3 { font-size: 1.05rem; letter-spacing: 0.08em; text-transform: uppercase; }
   p { margin: 0; }
-  .lede { color: var(--muted); font-size: 1.12rem; max-width: 36rem; }
+  .lede { color: var(--muted); font-size: 1.18rem; max-width: 38rem; }
   .muted { color: var(--muted); }
   .outline { color: transparent; -webkit-text-stroke: 1.5px var(--fg); }
   .textlink { display: inline-flex; align-items: center; gap: 8px; font: 500 0.8rem/1 var(--font-mono); letter-spacing: 0.1em; text-transform: uppercase; text-decoration: underline; text-underline-offset: 6px; text-decoration-color: var(--dim); transition: text-decoration-color .2s; }
@@ -434,7 +434,7 @@
   <div class="wrap">
     <a class="brand" href="index.html" aria-label="Spano Technologies home"><svg class="mark" viewBox="0 0 856 258" aria-hidden="true" focusable="false"><polygon points="157,0 482,0 418,64 288,64 257,96 513,96 352,257 0,257 64,193 320,193 352,161 96,161 194,63"/><polygon points="531,0 855,0 791,64 693,64 500,257 405,257 597,64 467,64"/></svg><span class="wordmark">Spano Technologies</span></a>
     <div class="bar-end">
-      <nav class="menu" aria-label="Main"><a href="pickup.html">How it works</a><a href="about.html" aria-current="page">About</a><a href="shop.html">Shop</a><a href="contact.html">Contact</a></nav>
+      <nav class="menu" aria-label="Main"><a href="pickup.html">How it works</a><a href="guides.html">Guides</a><a href="about.html" aria-current="page">About</a><a href="contact.html">Contact</a></nav>
       <a class="btn small" href="request.html">Request pickup <svg class="arr" viewBox="0 0 12 12" aria-hidden="true" focusable="false"><path d="M2 10 10 2M3.5 2H10v6.5" fill="none" stroke="currentColor" stroke-width="1.7"/></svg></a>
       <button class="burger" type="button" aria-expanded="false" aria-controls="sheet" aria-label="Menu"><span></span><span></span></button>
     </div>
@@ -442,7 +442,7 @@
   <div class="progress" aria-hidden="true"></div>
 </header>
 <div class="sheet" id="sheet">
-  <nav aria-label="Menu"><a href="index.html">Home<small>01</small></a><a href="pickup.html">How pickup works<small>02</small></a><a href="about.html" aria-current="page">About<small>03</small></a><a href="shop.html">Shop<small>04</small></a><a href="contact.html">Contact<small>05</small></a></nav>
+  <nav aria-label="Menu"><a href="index.html">Home<small>01</small></a><a href="pickup.html">How pickup works<small>02</small></a><a href="guides.html">Guides<small>03</small></a><a href="about.html" aria-current="page">About<small>04</small></a><a href="contact.html">Contact<small>05</small></a></nav>
   <div class="sheet-foot">
     <a class="btn" href="request.html">Request a pickup <svg class="arr" viewBox="0 0 12 12" aria-hidden="true" focusable="false"><path d="M2 10 10 2M3.5 2H10v6.5" fill="none" stroke="currentColor" stroke-width="1.7"/></svg></a>
     <p class="proof"><span>Free for 3+ devices</span><span>Certified drive shredding</span><span>Philadelphia area</span></p>
@@ -452,39 +452,25 @@
 <section class="page-head"><div class="head-mark" aria-hidden="true"><svg viewBox="0 0 856 258" aria-hidden="true" focusable="false"><polygon points="157,0 482,0 418,64 288,64 257,96 513,96 352,257 0,257 64,193 320,193 352,161 96,161 194,63" pathLength="1"/><polygon points="531,0 855,0 791,64 693,64 500,257 405,257 597,64 467,64" pathLength="1"/></svg></div>
   <div class="wrap" style="display:grid;gap:16px">
     <p class="eyebrow">About</p>
-    <h1>A small local business. Every machine handled by hand.</h1>
-    <p class="lede">Spano Technologies LLC is a Pennsylvania company run by Cole Spano in Philadelphia. We pick up retired computers from small offices, make sure every drive is shredded, and give the machines that still work a second life.</p>
-  </div>
-</section>
-
-<section class="band">
-  <div class="wrap">
-    <div class="section-head">
-      <p class="eyebrow">Why reuse</p>
-      <h2>Business computers have a longer life than the one they've had.</h2>
-    </div>
-    <div class="why">
-      <article class="term"><h3>Built to last</h3><p class="muted">ThinkPads, Latitudes, OptiPlexes and their peers are designed for years of daily work, with sturdier parts than most consumer machines.</p></article>
-      <article class="term"><h3>Retired on a schedule</h3><p class="muted">Offices replace them on a refresh cycle, not because they're worn out. Most have years of use left.</p></article>
-      <article class="term"><h3>Recycled when they're done</h3><p class="muted">What can't be reused goes to an R2v3-certified electronics recycler, not a landfill.</p></article>
-    </div>
+    <h1>About Spano Technologies</h1>
+    <p class="lede">Spano Technologies LLC is a small Pennsylvania company I run in Philadelphia. I pick up retired computers from local offices, see that every drive is shredded, and refurbish the machines that still work.</p>
   </div>
 </section>
 
 <div class="wrap">
   <div class="prose">
-    <h2>What we do</h2>
-    <p>Offices in Philadelphia, the Main Line and Delaware County call us when they retire three or more laptops or desktops. We pick them up for free, have every drive shredded by an R2v3-certified recycler, and send a certificate listing each drive by serial number with the recycler's receipt. <a href="pickup.html">How pickup works</a>.</p>
+    <h2>How it started</h2>
+    <p>I started selling used laptops and phones on eBay in 2014. More than 600 sales later, with 100% positive feedback, I know which machines are worth another life and which should be recycled. The pickup service is the other end of that work: most offices have a closet of old computers they can't throw out because of the data on them, and I'm set up to deal with exactly that. <a href="pickup.html">How pickup works</a>.</p>
 
-    <h2>Where the machines go</h2>
-    <p>Working machines are tested, cleaned and resold through our eBay store, where we've sold laptops since 2014: more than 600 sales, mostly business laptops and memory, with 100% positive feedback. Before anything is listed, its drive has been shredded or erased and every asset tag and sticker is off. Your company's name never appears anywhere. Machines that can't be reused are recycled.</p>
+    <h2>Why reuse them</h2>
+    <p>Business laptops and desktops are built for years of daily use, and offices usually replace them on a schedule, not because they've worn out. Most have years left. The ones that don't are recycled through an R2v3-certified electronics recycler, not sent to a landfill.</p>
 
     <h2>How a machine is checked</h2>
-    <p>Each one is powered on and checked: the BIOS, battery, screen, keyboard and ports. Its specs come from the machine itself, and its condition is written plainly. A machine that doesn't work is sold for parts and labeled that way.</p>
+    <p>Each one is powered on and checked: the BIOS, battery, screen, keyboard and ports. Its specs come from the machine itself, and the listing says what works and what doesn't. A machine that doesn't fully work is sold for parts and labeled that way. Before anything is listed, its drive has been shredded or erased and every asset tag is off.</p>
 
     <div class="actions" style="margin-top:12px">
       <a class="btn" href="request.html">Request a pickup <svg class="arr" viewBox="0 0 12 12" aria-hidden="true" focusable="false"><path d="M2 10 10 2M3.5 2H10v6.5" fill="none" stroke="currentColor" stroke-width="1.7"/></svg></a>
-      <a class="btn ghost" href="shop.html">Shop refurbished laptops</a>
+      <a class="btn ghost" href="pickup.html">How pickup works</a>
     </div>
   </div>
 </div>
@@ -493,8 +479,8 @@
   <div class="wrap">
     <div class="foot-word" aria-hidden="true" data-word="Spano Technologies"></div>
     <div class="foot-grid">
-      <div><svg class="mark" viewBox="0 0 856 258" aria-hidden="true" focusable="false"><polygon points="157,0 482,0 418,64 288,64 257,96 513,96 352,257 0,257 64,193 320,193 352,161 96,161 194,63"/><polygon points="531,0 855,0 791,64 693,64 500,257 405,257 597,64 467,64"/></svg><p>Free pickup of retired laptops and desktops for small offices around Philadelphia. Every drive shredded by a certified recycler, a certificate for every pickup, and recycling for the rest.</p></div>
-      <div><h2>Pickup</h2><nav aria-label="Pickup"><a href="pickup.html">How it works</a><a href="pickup.html#questions">Questions</a><a href="assets/sample-certificate.pdf" target="_blank" rel="noopener">Sample certificate <svg class="arr" viewBox="0 0 12 12" aria-hidden="true" focusable="false"><path d="M2 10 10 2M3.5 2H10v6.5" fill="none" stroke="currentColor" stroke-width="1.7"/></svg></a><a href="assets/data-destruction-policy.pdf" target="_blank" rel="noopener">Data destruction policy <svg class="arr" viewBox="0 0 12 12" aria-hidden="true" focusable="false"><path d="M2 10 10 2M3.5 2H10v6.5" fill="none" stroke="currentColor" stroke-width="1.7"/></svg></a><a href="guides.html">Guides</a><a href="property-managers.html">For property managers</a><a href="about.html">About</a></nav></div>
+      <div><svg class="mark" viewBox="0 0 856 258" aria-hidden="true" focusable="false"><polygon points="157,0 482,0 418,64 288,64 257,96 513,96 352,257 0,257 64,193 320,193 352,161 96,161 194,63"/><polygon points="531,0 855,0 791,64 693,64 500,257 405,257 597,64 467,64"/></svg><p>Free computer pickup and recycling for small offices around Philadelphia, with every hard drive shredded by a certified recycler.</p></div>
+      <div><h2>Pickup</h2><nav aria-label="Pickup"><a href="pickup.html">How it works</a><a href="pickup.html#questions">Questions</a><a href="assets/sample-certificate.pdf" target="_blank" rel="noopener">Sample certificate <svg class="arr" viewBox="0 0 12 12" aria-hidden="true" focusable="false"><path d="M2 10 10 2M3.5 2H10v6.5" fill="none" stroke="currentColor" stroke-width="1.7"/></svg></a><a href="assets/data-destruction-policy.pdf" target="_blank" rel="noopener">Data destruction policy <svg class="arr" viewBox="0 0 12 12" aria-hidden="true" focusable="false"><path d="M2 10 10 2M3.5 2H10v6.5" fill="none" stroke="currentColor" stroke-width="1.7"/></svg></a><a href="guides.html">Guides</a><a href="property-managers.html">For property managers</a><a href="service-area.html">Service area</a><a href="about.html">About</a></nav></div>
       <div><h2>Shop</h2><nav aria-label="Shop"><a href="shop.html">Refurbished laptops</a><a href="guide.html">Buying guide</a><a href="https://www.ebay.com/str/spanotechnologies" target="_blank" rel="noopener">eBay store <svg class="arr" viewBox="0 0 12 12" aria-hidden="true" focusable="false"><path d="M2 10 10 2M3.5 2H10v6.5" fill="none" stroke="currentColor" stroke-width="1.7"/></svg></a></nav></div>
       <div><h2>Contact</h2><nav aria-label="Contact"><a href="contact.html">Contact page</a><a href="mailto:info@spanotechnologies.com">info@spanotechnologies.com</a><a href="tel:+14849571712">(484) 957-1712</a></nav></div>
     </div>
