@@ -117,7 +117,7 @@ FOOTER = f'''<footer>
     <div class="foot-word" aria-hidden="true">Spano Technologies</div>
     <div class="foot-grid">
       <div>{MARK}<p>Free pickup of retired laptops and desktops for small offices around Philadelphia. Every drive shredded by a certified recycler, a certificate for every pickup, and recycling for the rest.</p></div>
-      <div><h2>Pickup</h2><nav aria-label="Pickup"><a href="pickup.html">How it works</a><a href="pickup.html#questions">Questions</a><a href="assets/sample-certificate.pdf" target="_blank" rel="noopener">Sample certificate {ARR}</a><a href="about.html">About</a></nav></div>
+      <div><h2>Pickup</h2><nav aria-label="Pickup"><a href="pickup.html">How it works</a><a href="pickup.html#questions">Questions</a><a href="assets/sample-certificate.pdf" target="_blank" rel="noopener">Sample certificate {ARR}</a><a href="assets/data-destruction-policy.pdf" target="_blank" rel="noopener">Data destruction policy {ARR}</a><a href="about.html">About</a></nav></div>
       <div><h2>Shop</h2><nav aria-label="Shop"><a href="shop.html">Refurbished laptops</a><a href="guide.html">Buying guide</a><a href="{EBAY}" target="_blank" rel="noopener">eBay store {ARR}</a></nav></div>
       <div><h2>Contact</h2><nav aria-label="Contact"><a href="contact.html">Contact page</a><a href="mailto:info@spanotechnologies.com">info@spanotechnologies.com</a><a href="tel:+14849571712">(484) 957-1712</a></nav></div>
     </div>
