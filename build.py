@@ -105,7 +105,9 @@ def guide_jsonld(slug, title, desc):
         {'@type': 'ListItem', 'position': i, 'name': n, 'item': u} for i, (n, u) in enumerate(crumbs, 1)]}]
     if slug in GUIDES:
         graph.append({'@type': 'Article', 'headline': title.split(' · ')[0][:110], 'description': desc,
-                      'image': f'{SITE}/assets/og.jpg', 'datePublished': GUIDES[slug], 'dateModified': GUIDES[slug],
+                      'image': f'{SITE}/assets/og.jpg',
+                      # Google wants a full datetime with a timezone (Rich Results Test, 2026-11-24)
+                      'datePublished': GUIDES[slug] + 'T09:00:00-05:00', 'dateModified': GUIDES[slug] + 'T09:00:00-05:00',
                       'mainEntityOfPage': f'{SITE}/{slug}',
                       'author': {'@type': 'Organization', 'name': 'Spano Technologies', 'url': f'{SITE}/'},
                       'publisher': {'@type': 'Organization', '@id': f'{SITE}/#organization', 'name': 'Spano Technologies',
