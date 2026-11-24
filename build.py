@@ -117,11 +117,11 @@ FOOTER = f'''<footer>
     <div class="foot-word" aria-hidden="true">Spano Technologies</div>
     <div class="foot-grid">
       <div>{MARK}<p>Free pickup of retired laptops and desktops for small offices around Philadelphia. Every drive shredded by a certified recycler, a certificate for every pickup, and recycling for the rest.</p></div>
-      <div><h2>Pickup</h2><nav aria-label="Pickup"><a href="pickup.html">How it works</a><a href="pickup.html#questions">Questions</a><a href="assets/sample-certificate.pdf" target="_blank" rel="noopener">Sample certificate {ARR}</a><a href="assets/data-destruction-policy.pdf" target="_blank" rel="noopener">Data destruction policy {ARR}</a><a href="about.html">About</a></nav></div>
+      <div><h2>Pickup</h2><nav aria-label="Pickup"><a href="pickup.html">How it works</a><a href="pickup.html#questions">Questions</a><a href="assets/sample-certificate.pdf" target="_blank" rel="noopener">Sample certificate {ARR}</a><a href="assets/data-destruction-policy.pdf" target="_blank" rel="noopener">Data destruction policy {ARR}</a><a href="guides.html">Guides</a><a href="about.html">About</a></nav></div>
       <div><h2>Shop</h2><nav aria-label="Shop"><a href="shop.html">Refurbished laptops</a><a href="guide.html">Buying guide</a><a href="{EBAY}" target="_blank" rel="noopener">eBay store {ARR}</a></nav></div>
       <div><h2>Contact</h2><nav aria-label="Contact"><a href="contact.html">Contact page</a><a href="mailto:info@spanotechnologies.com">info@spanotechnologies.com</a><a href="tel:+14849571712">(484) 957-1712</a></nav></div>
     </div>
-    <div class="legal"><span>© {dt.date.today().year} Spano Technologies LLC</span><span>Independent seller. eBay is a trademark of eBay Inc.</span></div>
+    <div class="legal"><span>© {dt.date.today().year} Spano Technologies LLC</span><span><a href="privacy.html">Privacy</a></span><span>Independent seller. eBay is a trademark of eBay Inc.</span></div>
   </div>
 </footer>'''
 
@@ -193,7 +193,7 @@ def build():
         current = f.name if f.name != '404.html' else ''
         main = f'{header(current)}\n<main id="main">\n{body}</main>\n{FOOTER}\n<script>\n{js}</script>\n'
         if f.name == '404.html':  # served from any path, so links must be root-absolute
-            main = re.sub(r'(src|href)="(assets/|[a-z0-9]+\.html)', r'\1="/\2', main).replace('href="/index.html', 'href="/')
+            main = re.sub(r'(src|href)="(assets/|[a-z0-9-]+\.html)', r'\1="/\2', main).replace('href="/index.html', 'href="/')
         slug = '' if f.name == 'index.html' else f.name[:-5]
         extra = ('<meta name="robots" content="noindex">\n' if f.name in ('404.html', 'thanks.html')
                  else f'<link rel="canonical" href="{SITE}/{slug}">\n')
@@ -234,7 +234,8 @@ def build():
             (PREVIEW / 'index.html').write_text(
                 f'<title>{title}</title>\n<meta name="claude:viewport-fit-sides" content="cover">\n'
                 f'{FONTS}\n<style>\n{css}</style>\n{main}')
-    order = ['', 'pickup', 'request', 'about', 'shop', 'guide', 'contact']   # thanks: noindex, left out
+    order = ['', 'pickup', 'request', 'guides', 'retire-office-computers-philadelphia', 'pennsylvania-electronics-disposal-law',
+             'retire-laptops-checklist', 'certificate-of-data-destruction', 'about', 'shop', 'guide', 'contact', 'privacy']   # thanks: noindex, left out
     urls = ''.join(f'  <url><loc>{SITE}/{p}</loc></url>\n' for p in order if p in names)
     (OUT / 'sitemap.xml').write_text(
         '<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n'

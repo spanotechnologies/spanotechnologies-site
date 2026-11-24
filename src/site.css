@@ -244,6 +244,14 @@
   .term { background: var(--surface); padding: 28px; display: grid; gap: 12px; align-content: start; min-width: 0; clip-path: polygon(0 0, calc(100% - 26px) 0, 100% 26px, 100% 100%, 0 100%); }
   .band.alt .term { background: var(--bg); }
   .term h3 { font-size: 1.2rem; }
+  .term a, .prose a, .section-head .muted a { color: var(--fg); text-underline-offset: 4px; }
+  a.term.link { text-decoration: none; transition: background .35s var(--ease), transform .35s var(--ease); }
+  a.term.link h3::after { content: " →"; color: var(--muted); transition: color .3s; }
+  a.term.link:hover { background: #202024; transform: translateY(-2px); }
+  a.term.link:hover h3::after { color: var(--fg); }
+  .prose ol.plain, .prose ul.plain { gap: 12px; }
+  .prose .plain b { color: var(--fg); font-weight: 600; }
+  .legal a { color: inherit; text-underline-offset: 3px; }
 
   /* faq */
   .faq { max-width: 46rem; padding-block: 40px 88px; display: grid; }
