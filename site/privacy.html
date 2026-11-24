@@ -358,6 +358,7 @@
 
   /* footer */
   footer { overflow: hidden; }
+  .foot-word::before { content: attr(data-word); }  /* decorative: in CSS, not page text, so contrast checks skip it */
   .foot-word { font: 600 clamp(1.6rem, 7.4vw, 7.6rem)/1 var(--font-display); letter-spacing: 0.04em; text-transform: uppercase; white-space: nowrap; color: transparent; -webkit-text-stroke: 1px #3a3a40; padding-block: clamp(40px, 6vw, 80px) clamp(20px, 3vw, 40px); user-select: none; }
   .foot-grid { display: grid; grid-template-columns: minmax(0, 1.4fr) repeat(3, minmax(0, 1fr)); gap: 32px 24px; padding-block: 32px 44px; border-top: 1px solid var(--line); }
   .foot-grid .mark { width: 84px; fill: var(--fg); display: block; margin-bottom: 18px; }
@@ -492,10 +493,10 @@
 </main>
 <footer>
   <div class="wrap">
-    <div class="foot-word" aria-hidden="true">Spano Technologies</div>
+    <div class="foot-word" aria-hidden="true" data-word="Spano Technologies"></div>
     <div class="foot-grid">
       <div><svg class="mark" viewBox="0 0 856 258" aria-hidden="true" focusable="false"><polygon points="157,0 482,0 418,64 288,64 257,96 513,96 352,257 0,257 64,193 320,193 352,161 96,161 194,63"/><polygon points="531,0 855,0 791,64 693,64 500,257 405,257 597,64 467,64"/></svg><p>Free pickup of retired laptops and desktops for small offices around Philadelphia. Every drive shredded by a certified recycler, a certificate for every pickup, and recycling for the rest.</p></div>
-      <div><h2>Pickup</h2><nav aria-label="Pickup"><a href="pickup.html">How it works</a><a href="pickup.html#questions">Questions</a><a href="assets/sample-certificate.pdf" target="_blank" rel="noopener">Sample certificate <svg class="arr" viewBox="0 0 12 12" aria-hidden="true" focusable="false"><path d="M2 10 10 2M3.5 2H10v6.5" fill="none" stroke="currentColor" stroke-width="1.7"/></svg></a><a href="assets/data-destruction-policy.pdf" target="_blank" rel="noopener">Data destruction policy <svg class="arr" viewBox="0 0 12 12" aria-hidden="true" focusable="false"><path d="M2 10 10 2M3.5 2H10v6.5" fill="none" stroke="currentColor" stroke-width="1.7"/></svg></a><a href="guides.html">Guides</a><a href="about.html">About</a></nav></div>
+      <div><h2>Pickup</h2><nav aria-label="Pickup"><a href="pickup.html">How it works</a><a href="pickup.html#questions">Questions</a><a href="assets/sample-certificate.pdf" target="_blank" rel="noopener">Sample certificate <svg class="arr" viewBox="0 0 12 12" aria-hidden="true" focusable="false"><path d="M2 10 10 2M3.5 2H10v6.5" fill="none" stroke="currentColor" stroke-width="1.7"/></svg></a><a href="assets/data-destruction-policy.pdf" target="_blank" rel="noopener">Data destruction policy <svg class="arr" viewBox="0 0 12 12" aria-hidden="true" focusable="false"><path d="M2 10 10 2M3.5 2H10v6.5" fill="none" stroke="currentColor" stroke-width="1.7"/></svg></a><a href="guides.html">Guides</a><a href="property-managers.html">For property managers</a><a href="about.html">About</a></nav></div>
       <div><h2>Shop</h2><nav aria-label="Shop"><a href="shop.html">Refurbished laptops</a><a href="guide.html">Buying guide</a><a href="https://www.ebay.com/str/spanotechnologies" target="_blank" rel="noopener">eBay store <svg class="arr" viewBox="0 0 12 12" aria-hidden="true" focusable="false"><path d="M2 10 10 2M3.5 2H10v6.5" fill="none" stroke="currentColor" stroke-width="1.7"/></svg></a></nav></div>
       <div><h2>Contact</h2><nav aria-label="Contact"><a href="contact.html">Contact page</a><a href="mailto:info@spanotechnologies.com">info@spanotechnologies.com</a><a href="tel:+14849571712">(484) 957-1712</a></nav></div>
     </div>

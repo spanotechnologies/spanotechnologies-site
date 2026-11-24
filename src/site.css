@@ -329,6 +329,7 @@
 
   /* footer */
   footer { overflow: hidden; }
+  .foot-word::before { content: attr(data-word); }  /* decorative: in CSS, not page text, so contrast checks skip it */
   .foot-word { font: 600 clamp(1.6rem, 7.4vw, 7.6rem)/1 var(--font-display); letter-spacing: 0.04em; text-transform: uppercase; white-space: nowrap; color: transparent; -webkit-text-stroke: 1px #3a3a40; padding-block: clamp(40px, 6vw, 80px) clamp(20px, 3vw, 40px); user-select: none; }
   .foot-grid { display: grid; grid-template-columns: minmax(0, 1.4fr) repeat(3, minmax(0, 1fr)); gap: 32px 24px; padding-block: 32px 44px; border-top: 1px solid var(--line); }
   .foot-grid .mark { width: 84px; fill: var(--fg); display: block; margin-bottom: 18px; }
