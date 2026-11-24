@@ -92,6 +92,8 @@ GUIDES = {
     'pennsylvania-electronics-disposal-law': '2026-11-23',
     'retire-laptops-checklist': '2026-11-23',
     'certificate-of-data-destruction': '2026-11-23',
+    'retiring-computers-cpa-firms': '2026-11-24',
+    'retiring-computers-law-firms': '2026-11-24',
 }
 
 
@@ -272,7 +274,8 @@ def build():
                 f'<title>{title}</title>\n<meta name="claude:viewport-fit-sides" content="cover">\n'
                 f'{FONTS}\n<style>\n{css}</style>\n{main}')
     order = ['', 'pickup', 'request', 'service-area', 'property-managers', 'guides', 'retire-office-computers-philadelphia', 'pennsylvania-electronics-disposal-law',
-             'retire-laptops-checklist', 'certificate-of-data-destruction', 'about', 'shop', 'guide', 'contact', 'privacy']   # thanks: noindex, left out
+             'retire-laptops-checklist', 'certificate-of-data-destruction', 'retiring-computers-cpa-firms',
+             'retiring-computers-law-firms', 'about', 'shop', 'guide', 'contact', 'privacy']   # thanks: noindex, left out
     urls = ''.join(f'  <url><loc>{SITE}/{p}</loc></url>\n' for p in order if p in names)
     (OUT / 'sitemap.xml').write_text(
         '<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n'
