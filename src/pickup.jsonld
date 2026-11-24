@@ -2,7 +2,7 @@
   "@context": "https://schema.org",
   "@type": "Service",
   "@id": "https://spanotechnologies.com/pickup#service",
-  "name": "Business laptop and desktop pickup",
+  "name": "Business computer pickup (laptops, desktops, all-in-ones)",
   "serviceType": "Business computer pickup with certified drive shredding",
   "description": "Free pickup of retired business laptops and desktops for offices with three or more devices. Every drive is shredded by an R2v3-certified recycler, built-in storage is erased unless your policy requires shredding, and a certificate listing every drive by serial number with the recycler's shredding receipt follows within 15 business days. Newer machines can get a per-unit cash offer.",
   "url": "https://spanotechnologies.com/pickup",
