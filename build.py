@@ -82,6 +82,38 @@ PICKUP_MAILTO = ('mailto:info@spanotechnologies.com?subject=Business%20pickup%20
 # Google Search Console ownership (cole@spanotechnologies.com, URL-prefix property). Keep it.
 GSC = '<meta name="google-site-verification" content="5Aa50GdVFVObh1zNSmoDVa_aalK_AM4D7m904ccV49w">'
 
+# Guide pages get Article + BreadcrumbList structured data (2026-11-24). FAQ markup was left off on
+# purpose: since 2023 Google shows FAQ rich results only for government and health sites.
+# Bump a guide's date here whenever its facts are rechecked or changed.
+GUIDES = {
+    'retire-office-computers-philadelphia': '2026-11-23',
+    'pennsylvania-electronics-disposal-law': '2026-11-23',
+    'retire-laptops-checklist': '2026-11-23',
+    'certificate-of-data-destruction': '2026-11-23',
+}
+
+
+def guide_jsonld(slug, title, desc):
+    crumbs = [('Home', f'{SITE}/'), ('Guides', f'{SITE}/guides')]
+    if slug == 'guides':
+        crumbs = crumbs[:2]
+    elif slug in GUIDES:
+        crumbs.append((title.split(' · ')[0], f'{SITE}/{slug}'))
+    else:
+        return ''
+    graph = [{'@type': 'BreadcrumbList', 'itemListElement': [
+        {'@type': 'ListItem', 'position': i, 'name': n, 'item': u} for i, (n, u) in enumerate(crumbs, 1)]}]
+    if slug in GUIDES:
+        graph.append({'@type': 'Article', 'headline': title.split(' · ')[0][:110], 'description': desc,
+                      'image': f'{SITE}/assets/og.jpg', 'datePublished': GUIDES[slug], 'dateModified': GUIDES[slug],
+                      'mainEntityOfPage': f'{SITE}/{slug}',
+                      'author': {'@type': 'Organization', 'name': 'Spano Technologies', 'url': f'{SITE}/'},
+                      'publisher': {'@type': 'Organization', '@id': f'{SITE}/#organization', 'name': 'Spano Technologies',
+                                    'logo': {'@type': 'ImageObject', 'url': f'{SITE}/assets/apple-touch-icon.png'}}})
+    data = {'@context': 'https://schema.org', '@graph': graph}
+    return '<script type="application/ld+json">' + json.dumps(data, separators=(',', ':')) + '</script>\n'
+
+
 DATA = json.loads((SRC / 'data.json').read_text())
 esc = html.escape
 
@@ -198,6 +230,7 @@ def build():
         extra = ('<meta name="robots" content="noindex">\n' if f.name in ('404.html', 'thanks.html')
                  else f'<link rel="canonical" href="{SITE}/{slug}">\n')
         extra += {'index.html': JSONLD + '\n' + GSC + '\n', 'pickup.html': PICKUP_JSONLD + '\n'}.get(f.name, '')
+        extra += guide_jsonld(slug, title, desc)
         if f.name != '404.html':
             names.append(slug)
         full = f'''<!doctype html>
