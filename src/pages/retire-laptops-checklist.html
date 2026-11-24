@@ -44,6 +44,25 @@
 
 <div class="wrap">
   <div class="prose">
+    <h2>An email for your IT provider</h2>
+    <p>If someone else manages your computers, steps 04 and 05 are theirs. Copy this, fill in the brackets, and send it a week or two before the machines go.</p>
+    <div class="template" id="it-email">Subject: Releasing retired computers before pickup
+
+Hi [name],
+
+We're retiring the computers listed below on [date]. Before they leave the office, could you:
+
+1. Remove them from Windows Autopilot and Intune (or Apple Business Manager, or whatever management tool we use), and from Absolute if it's installed.
+2. Remove any BIOS or firmware passwords, or send me the passwords.
+3. Sign our iPhones, iPads and Macs out of our Apple account, and remove our Google account from any Android phones or tablets.
+4. Confirm that anything we need from them is backed up.
+
+[List the computers: make, model and serial number if you have them]
+
+Thanks,
+[your name]</div>
+    <p><button class="btn small ghost" type="button" id="copy-it-email">Copy the email</button></p>
+
     <h2>After they're gone</h2>
     <p><b>Get it in writing.</b> A signed transfer at pickup listing every machine, then a certificate listing every drive by serial number. <a href="certificate-of-data-destruction.html">What the certificate should show</a>.</p>
     <p><b>Close out your records.</b> Mark the machines retired in your asset list, and cancel anything billed per device, such as antivirus, backup or remote-management licenses.</p>
@@ -60,3 +79,20 @@
     <a class="btn" href="{{PICKUP_URL}}">Request a pickup ↗</a>
   </div>
 </section>
+
+<script>
+(function () {
+  var btn = document.getElementById('copy-it-email');
+  var box = document.getElementById('it-email');
+  if (!btn || !box) return;
+  btn.addEventListener('click', function () {
+    function done(ok) {
+      btn.textContent = ok ? 'Copied' : 'Select it and copy';
+      setTimeout(function () { btn.textContent = 'Copy the email'; }, 1800);
+      if (!ok) { var r = document.createRange(); r.selectNodeContents(box); var s = window.getSelection(); s.removeAllRanges(); s.addRange(r); }
+    }
+    try { navigator.clipboard.writeText(box.innerText).then(function () { done(true); }, function () { done(false); }); }
+    catch (e) { done(false); }
+  });
+})();
+</script>
