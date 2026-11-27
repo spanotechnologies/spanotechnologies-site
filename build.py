@@ -155,7 +155,7 @@ FOOTER = f'''<footer>
     <div class="foot-word" aria-hidden="true" data-word="Spano Technologies"></div>
     <div class="foot-grid">
       <div>{MARK}<p>Free computer pickup and recycling for small offices around Philadelphia, with every hard drive shredded by a certified recycler.</p></div>
-      <div><h2>Pickup</h2><nav aria-label="Pickup"><a href="pickup.html">How it works</a><a href="pickup.html#questions">Questions</a><a href="assets/sample-certificate.pdf" target="_blank" rel="noopener">Sample certificate {ARR}</a><a href="assets/data-destruction-policy.pdf" target="_blank" rel="noopener">Data destruction policy {ARR}</a><a href="guides.html">Guides</a><a href="property-managers.html">For property managers</a><a href="service-area.html">Service area</a><a href="about.html">About</a></nav></div>
+      <div><h2>Pickup</h2><nav aria-label="Pickup"><a href="pickup.html">How it works</a><a href="pickup.html#questions">Questions</a><a href="assets/sample-certificate.pdf" target="_blank" rel="noopener">Sample certificate {ARR}</a><a href="data-destruction-policy.html">Data destruction policy</a><a href="guides.html">Guides</a><a href="property-managers.html">For property managers</a><a href="service-area.html">Service area</a><a href="about.html">About</a></nav></div>
       <div><h2>Shop</h2><nav aria-label="Shop"><a href="shop.html">Refurbished laptops</a><a href="guide.html">Buying guide</a><a href="{EBAY}" target="_blank" rel="noopener">eBay store {ARR}</a></nav></div>
       <div><h2>Contact</h2><nav aria-label="Contact"><a href="contact.html">Contact page</a><a href="mailto:info@spanotechnologies.com">info@spanotechnologies.com</a><a href="tel:+14849571712">(484) 957-1712</a></nav></div>
     </div>
@@ -275,7 +275,7 @@ def build():
                 f'{FONTS}\n<style>\n{css}</style>\n{main}')
     order = ['', 'pickup', 'request', 'service-area', 'property-managers', 'guides', 'retire-office-computers-philadelphia', 'pennsylvania-electronics-disposal-law',
              'retire-laptops-checklist', 'certificate-of-data-destruction', 'retiring-computers-cpa-firms',
-             'retiring-computers-law-firms', 'about', 'shop', 'guide', 'contact', 'privacy']   # thanks: noindex, left out
+             'retiring-computers-law-firms', 'data-destruction-policy', 'about', 'shop', 'guide', 'contact', 'privacy']   # thanks: noindex, left out
     urls = ''.join(f'  <url><loc>{SITE}/{p}</loc></url>\n' for p in order if p in names)
     (OUT / 'sitemap.xml').write_text(
         '<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n'
